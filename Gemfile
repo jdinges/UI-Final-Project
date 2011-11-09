@@ -33,3 +33,7 @@ gem 'nifty-generators', '>= 0.4.0'
 # To use debugger
 # gem 'ruby-debug'
 
+gem "mocha", :group => :test
+
+#do want haml
+gem "haml"

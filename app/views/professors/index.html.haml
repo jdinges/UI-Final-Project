@@ -1,0 +1,15 @@
+- title "Professors"
+
+%table
+  %tr
+    %th Name
+    %th Subtitle
+  - for professor in @professors
+    %tr
+      %td= professor.name
+      %td= professor.subtitle
+      %td= link_to 'Show', professor
+      %td= link_to 'Edit', edit_professor_path(professor)
+      %td= link_to 'Destroy', professor, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Professor", new_professor_path

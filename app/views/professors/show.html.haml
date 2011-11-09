@@ -1,0 +1,15 @@
+- title "Professor"
+
+%p
+  %strong Name:
+  = @professor.name
+%p
+  %strong Subtitle:
+  = @professor.subtitle
+
+%p
+  = link_to "Edit", edit_professor_path(@professor)
+  |
+  = link_to "Destroy", @professor, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", professors_path
