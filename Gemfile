@@ -19,6 +19,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'therubyracer'
+
 gem 'nifty-generators', '>= 0.4.0'
 
 # To use ActiveModel has_secure_password
