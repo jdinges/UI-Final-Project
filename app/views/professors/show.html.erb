@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @professor.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @professor.title %>
+</p>
+
+<% @professor.sections.each do |section| %>
+	<div>
+		<h2><%= section.title %></h2>
+		<p><%= section.body %></p
+	</div>
+<% end %>
+
+<%= link_to 'Edit', edit_professor_path(@professor) %> |
+<%= link_to 'Back', professors_path %>
