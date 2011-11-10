@@ -1,3 +1,3 @@
 class Professor < ActiveRecord::Base
-	has_many :sections
+  attr_accessible :name, :subtitle
 end

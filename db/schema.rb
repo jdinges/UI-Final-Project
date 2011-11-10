@@ -11,23 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109045204) do
+ActiveRecord::Schema.define(:version => 20111109220231) do
 
   create_table "professors", :force => true do |t|
     t.string   "name"
-    t.string   "title"
+    t.string   "subtitle"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "sections", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "professor_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "sections", ["professor_id"], :name => "index_sections_on_professor_id"
 
 end

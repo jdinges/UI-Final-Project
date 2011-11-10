@@ -1,49 +1,54 @@
 require 'test_helper'
 
 class ProfessorsControllerTest < ActionController::TestCase
-  setup do
-    @professor = professors(:one)
-  end
-
-  test "should get index" do
+  def test_index
     get :index
-    assert_response :success
-    assert_not_nil assigns(:professors)
+    assert_template 'index'
   end
 
-  test "should get new" do
+  def test_show
+    get :show, :id => Professor.first
+    assert_template 'show'
+  end
+
+  def test_new
     get :new
-    assert_response :success
+    assert_template 'new'
   end
 
-  test "should create professor" do
-    assert_difference('Professor.count') do
-      post :create, professor: @professor.attributes
-    end
-
-    assert_redirected_to professor_path(assigns(:professor))
+  def test_create_invalid
+    Professor.any_instance.stubs(:valid?).returns(false)
+    post :create
+    assert_template 'new'
   end
 
-  test "should show professor" do
-    get :show, id: @professor.to_param
-    assert_response :success
+  def test_create_valid
+    Professor.any_instance.stubs(:valid?).returns(true)
+    post :create
+    assert_redirected_to professor_url(assigns(:professor))
   end
 
-  test "should get edit" do
-    get :edit, id: @professor.to_param
-    assert_response :success
+  def test_edit
+    get :edit, :id => Professor.first
+    assert_template 'edit'
   end
 
-  test "should update professor" do
-    put :update, id: @professor.to_param, professor: @professor.attributes
-    assert_redirected_to professor_path(assigns(:professor))
+  def test_update_invalid
+    Professor.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Professor.first
+    assert_template 'edit'
   end
 
-  test "should destroy professor" do
-    assert_difference('Professor.count', -1) do
-      delete :destroy, id: @professor.to_param
-    end
+  def test_update_valid
+    Professor.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Professor.first
+    assert_redirected_to professor_url(assigns(:professor))
+  end
 
-    assert_redirected_to professors_path
+  def test_destroy
+    professor = Professor.first
+    delete :destroy, :id => professor
+    assert_redirected_to professors_url
+    assert !Professor.exists?(professor.id)
   end
 end

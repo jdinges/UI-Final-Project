@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ProfessorTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def test_should_be_valid
+    assert Professor.new.valid?
+  end
 end
