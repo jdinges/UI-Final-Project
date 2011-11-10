@@ -1,3 +1,3 @@
 class Professor < ActiveRecord::Base
-  attr_accessible :name, :subtitle
+  attr_accessible :name, :title, :bio
 end

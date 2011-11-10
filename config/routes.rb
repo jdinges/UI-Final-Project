@@ -1,6 +1,4 @@
-UIFinalProject::Application.routes.draw do
-  resources :professors
-  root :to => "professors#index"
+UIFinalProject::Application.routes.draw do  root :to => "professors#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

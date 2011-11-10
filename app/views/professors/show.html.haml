@@ -4,8 +4,11 @@
   %strong Name:
   = @professor.name
 %p
-  %strong Subtitle:
-  = @professor.subtitle
+  %strong Title:
+  = @professor.title
+%p
+  %strong Bio:
+  = @professor.bio
 
 %p
   = link_to "Edit", edit_professor_path(@professor)

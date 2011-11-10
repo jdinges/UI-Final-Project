@@ -1,7 +1,9 @@
 one:
   name: MyString
-  subtitle: MyString
+  title: MyString
+  bio: MyString
 
 two:
   name: MyString
-  subtitle: MyString
+  title: MyString
+  bio: MyString
