@@ -1,6 +1,12 @@
 UIFinalProject::Application.routes.draw do  
   resources :professors  
+  resources :roles
+  resources :users
+  resources :user_sessions
   root :to => "professors#index"
+  
+  match 'user_sessions/new' => 'user_sessions#new', :as => :login
+  match 'users/new' => 'users#new', :as => :signup
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -47,6 +53,10 @@ UIFinalProject::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  namespace :members do
+    resources :professors
+  end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

@@ -23,6 +23,8 @@ gem 'therubyracer'
 
 gem 'nifty-generators', '>= 0.4.0'
 
+gem 'authlogic'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
