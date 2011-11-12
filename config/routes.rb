@@ -5,8 +5,9 @@ UIFinalProject::Application.routes.draw do
   resources :user_sessions
   root :to => "professors#index"
   
-  match 'user_sessions/new' => 'user_sessions#new', :as => :login
-  match 'users/new' => 'users#new', :as => :signup
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'signup' => 'users#new', :as => :signup
+  match 'logout' => 'user_sessions#destroy', :as => :logout
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
