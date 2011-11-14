@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111110205544) do
-
-  create_table "professors", :force => true do |t|
-    t.string   "name",       :null => false
-    t.string   "title"
-    t.string   "bio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20111114212116) do
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -29,6 +21,9 @@ ActiveRecord::Schema.define(:version => 20111110205544) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name",              :default => "John Doe", :null => false
+    t.string   "title"
+    t.string   "bio"
   end
 
 end

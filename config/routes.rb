@@ -3,7 +3,7 @@ UIFinalProject::Application.routes.draw do
   resources :roles
   resources :users
   resources :user_sessions
-  root :to => "professors#index"
+  root :to => "users#index"
   
   match 'login' => 'user_sessions#new', :as => :login
   match 'signup' => 'users#new', :as => :signup
