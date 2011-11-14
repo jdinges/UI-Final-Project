@@ -59,3 +59,8 @@ a {
     margin: 8px 10px; }
   .error_messages ul {
     margin: 0; }
+
+.content-section {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  padding: 0.5em; }
