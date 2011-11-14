@@ -21,6 +21,8 @@ gem 'jquery-rails'
 
 gem 'therubyracer'
 
+gem 'will_paginate'
+
 gem 'nifty-generators', '>= 0.4.0'
 
 gem 'authlogic'
