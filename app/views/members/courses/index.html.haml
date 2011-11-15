@@ -1,0 +1,17 @@
+- title "Courses"
+
+%table
+  %tr
+    %th User
+    %th Title
+    %th Link
+  - for course in @courses
+    %tr
+      %td= course.user
+      %td= course.title
+      %td= course.link
+      %td= link_to 'Show', members_course_path(course)
+      %td= link_to 'Edit', edit_members_course_path(course)
+      %td= link_to 'Destroy', members_course_path(course), :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Course", new_members_course_path

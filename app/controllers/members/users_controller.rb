@@ -1,6 +1,7 @@
-class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create, :index, :show]
+class Members::UsersController < ApplicationController
+  before_filter :login_required
   before_filter :find_user, :only => [:edit, :update]
+  before_filter :load_roles, :only => [:new, :edit, :update]
 
   def new
     @user = User.new
@@ -48,5 +49,9 @@ class UsersController < ApplicationController
 
     def find_user
       @user = current_user
+    end
+
+    def load_roles
+      @roles = Role.all
     end
 end
