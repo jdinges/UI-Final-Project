@@ -1,0 +1,20 @@
+<% title "Paper" %>
+
+<p>
+  <strong>P:</strong>
+  <%= @paper.p_id %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%= @paper.title %>
+</p>
+<p>
+  <strong>Filename:</strong>
+  <%= @paper.filename %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_paper_path(@paper) %> |
+  <%= link_to "Destroy", @paper, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", papers_path %>
+</p>

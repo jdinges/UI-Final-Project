@@ -1,0 +1,16 @@
+<%= form_for @course do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :p_id %><br />
+    <%= f.text_field :p_id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :link %><br />
+    <%= f.text_field :link %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

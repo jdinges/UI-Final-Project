@@ -1,4 +1,12 @@
 UIFinalProject::Application.routes.draw do  
+  resources :links
+
+  resources :accomplishments
+
+  resources :papers
+
+  resources :courses
+
   resources :professors  
   resources :roles
   resources :users

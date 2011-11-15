@@ -1,0 +1,20 @@
+<% title "Link" %>
+
+<p>
+  <strong>P:</strong>
+  <%= @link.p_id %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%= @link.title %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @link.location %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_link_path(@link) %> |
+  <%= link_to "Destroy", @link, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", links_path %>
+</p>

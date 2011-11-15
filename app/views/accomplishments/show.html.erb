@@ -1,0 +1,16 @@
+<% title "Accomplishment" %>
+
+<p>
+  <strong>P:</strong>
+  <%= @accomplishment.p_id %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @accomplishment.content %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_accomplishment_path(@accomplishment) %> |
+  <%= link_to "Destroy", @accomplishment, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", accomplishments_path %>
+</p>
