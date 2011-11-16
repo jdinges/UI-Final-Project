@@ -1,44 +1,188 @@
+/* line 17, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
-  background-color: #4b7399;
+  line-height: 1;
+}
+
+/* line 22, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, sass/application.sass */
+body {
+  background-color: white;
+  margin: 0 !important;
   font-family: Verdana, Helvetica, Arial;
-  font-size: 14px; }
+  font-size: 14px;
+}
 
+/* line 15, sass/application.sass */
 a {
-  color: blue; }
-  a img {
-    border: none; }
+  color: #888888;
+}
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+a:hover {
+  color: #aa0022;
+}
+/* line 18, sass/application.sass */
+a img {
+  border: none;
+}
 
+/* line 21, sass/application.sass */
 .clear {
   clear: both;
   height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
+/* line 26, sass/application.sass */
+#header {
+  color: white;
+  background-color: #a90329;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFA90329', endColorstr='#FF6D0019');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a90329), color-stop(44%, #8f0222), color-stop(100%, #6d0019));
+  background-image: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+  background-image: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+  background-image: -o-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+  background-image: -ms-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+  background-image: linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+}
+/* line 31, sass/application.sass */
+#header h1 {
+  font-size: 26pt;
+  float: left;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -0.1em;
+}
+/* line 37, sass/application.sass */
+#header #userlinks {
+  float: right;
+  font-size: 16pt;
+  margin: 0.5em;
+}
+/* line 41, sass/application.sass */
+#header #userlinks span {
+  display: inline !important;
+}
+/* line 43, sass/application.sass */
+#header #userlinks a {
+  color: #cccccc;
+  text-decoration: none;
+  text-decoration: none;
+  display: inline;
+}
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header #userlinks a:hover {
+  color: white;
+}
+/* line 4, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
+#header #userlinks a:hover {
+  text-decoration: underline;
+}
+
+/* line 49, sass/application.sass */
 #container {
   width: 75%;
   margin: 0 auto;
-  background: white;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dddddd), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+  background-image: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+  background-image: -o-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+  background-image: -ms-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+  background-image: linear-gradient(top, #dddddd 0%, #ffffff 100%);
   padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px; }
+  margin-top: 20px;
+}
+/* line 55, sass/application.sass */
+#container h2 {
+  font-size: 20pt;
+}
 
+/* line 58, sass/application.sass */
 #flash_notice,
 #flash_error,
 #flash_alert {
   padding: 5px 8px;
-  margin: 10px 0; }
+  margin: 10px 0;
+}
 
+/* line 64, sass/application.sass */
 #flash_notice {
   background-color: #ccffcc;
-  border: solid 1px #66cc66; }
+  border: solid 1px #66cc66;
+}
 
+/* line 68, sass/application.sass */
 #flash_error,
 #flash_alert {
   background-color: #ffcccc;
-  border: solid 1px #cc6666; }
+  border: solid 1px #cc6666;
+}
 
+/* line 73, sass/application.sass */
 .fieldWithErrors {
-  display: inline; }
+  display: inline;
+}
 
+/* line 76, sass/application.sass */
 .error_messages {
   width: 400px;
   border: 2px solid #cf0000;
@@ -46,21 +190,30 @@ a {
   padding-bottom: 12px;
   margin-bottom: 20px;
   background-color: #f0f0f0;
-  font-size: 12px; }
-  .error_messages h2 {
-    text-align: left;
-    padding: 5px 5px 5px 15px;
-    margin: 0;
-    font-weight: bold;
-    font-size: 12px;
-    background-color: #cc0000;
-    color: white; }
-  .error_messages p {
-    margin: 8px 10px; }
-  .error_messages ul {
-    margin: 0; }
+  font-size: 12px;
+}
+/* line 85, sass/application.sass */
+.error_messages h2 {
+  text-align: left;
+  padding: 5px 5px 5px 15px;
+  margin: 0;
+  font-weight: bold;
+  font-size: 12px;
+  background-color: #cc0000;
+  color: white;
+}
+/* line 94, sass/application.sass */
+.error_messages p {
+  margin: 8px 10px;
+}
+/* line 96, sass/application.sass */
+.error_messages ul {
+  margin: 0;
+}
 
+/* line 99, sass/application.sass */
 .content-section {
   border-top: 1px solid black;
   border-left: 1px solid black;
-  padding: 0.5em; }
+  padding: 0.5em;
+}

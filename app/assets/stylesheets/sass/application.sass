@@ -1,13 +1,20 @@
-$primary_color: #4b7399
+@import compass/reset
+@import compass/css3
+@import compass/utilities
+
+$primary_color: #fff
+$link_color: #aaa
 
 body
   background-color: $primary_color
+  margin: 0 !important
   font:
     family: Verdana, Helvetica, Arial
     size: 14px
 
 a
-  color: blue
+  // normal, hover
+  +link-colors(#888, #a02)
   img
     border: none
 
@@ -16,13 +23,37 @@ a
   height: 0
   overflow: hidden
 
+#header
+  color: $primary_color
+  background-color: #a90329
+  @include filter-gradient(#a90329, #6d0019, vertical)
+  @include background-image(linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%))
+  h1
+    font-size: 26pt
+    float: left
+    text-transform: uppercase
+    font-weight: bold
+    letter-spacing: -.1em
+  #userlinks
+    float: right
+    font-size: 16pt
+    margin: .5em
+    span
+      display: inline !important
+    a
+      +link-colors(#ccc, #fff)
+      +hover-link
+      text-decoration: none
+      display: inline
+
 #container
   width: 75%
   margin: 0 auto
-  background: white
+  @include background-image(linear-gradient(top, #ddd 0%, #fff 100%))
   padding: 20px 40px
-  border: solid 1px black
   margin-top: 20px
+  h2
+    font-size: 20pt
 
 #flash_notice,
 #flash_error,
