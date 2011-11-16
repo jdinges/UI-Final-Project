@@ -1,11 +1,25 @@
 -title "#{@user.title} #{@user.name}"
 
+.back= link_to "Back", :back
+
 #prof-info
-  .content-section
-    %h3 Biography
-    %span=h @user.bio
+  -unless @user.bio.nil?
+    .content-section
+      %h3 Biography
+      %span= @user.bio
     
-  .content-section
-    %h3 Courses
-    -for course in @user.courses
-      =link_to course.title, course.link
+  -unless @user.courses.count == 0
+    .content-section
+      %h3 Courses
+      -for course in @user.courses
+        =link_to course.title, course.link
+      
+  -unless @user.papers.count == 0
+    .content-section
+      %h3 Papers
+      -for paper in @user.papers
+        %span= paper.title
+        
+-if @user == current_user
+  .edit= link_to "Edit", edit_members_user_path
+.back= link_to "View all", members_users_path

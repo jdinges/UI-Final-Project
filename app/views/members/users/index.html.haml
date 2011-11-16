@@ -2,6 +2,6 @@
 
 - unless @users.count == 0
   - for user in @users
-    #prof= link_to "#{user.title} #{user.name}", user
+    #prof= link_to "#{user.title} #{user.name}", members_user_path(user)
 - else
   #zero-count No professors have used this application yet!

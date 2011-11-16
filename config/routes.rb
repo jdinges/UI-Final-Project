@@ -66,6 +66,7 @@ UIFinalProject::Application.routes.draw do
   namespace :members do
     resources :users
     resources :courses
+    resources :papers
   end
 
   # You can have the root of your site routed with "root"
