@@ -1,9 +1,10 @@
 - title "Log in"
 
-%p== Don't have an account? #{link_to "Sign up!", signup_path}
+.info
+  Don't have an account? 
+  =link_to "Sign up!", signup_path
 
 = form_for @user_session do |f|
-  = f.error_messages
   %p
     = f.label :username
     %br
@@ -12,5 +13,6 @@
     = f.label :password
     %br
     = f.password_field :password
+  = f.error_messages
   %p
     = f.submit "Log in"
