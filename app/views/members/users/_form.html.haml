@@ -1,5 +1,4 @@
 = form_for [:members, @user] do |f|
-  = f.error_messages
   %p
     = f.label :username
     %br
@@ -28,5 +27,6 @@
     = f.label :password_confirmation, "Confirm Password"
     %br
     = f.password_field :password_confirmation
+  = f.error_messages
   %p
     = f.submit (@user.new_record? ? "Sign up" : "Update")

@@ -1,9 +1,24 @@
 @import compass/reset
 @import compass/css3
 @import compass/utilities
+@import "blueprint/link-icons"
+@import "blueprint/interaction"
+@import "blueprint/form"
+@import "blueprint/buttons"
 
 $primary_color: #fff
 $link_color: #aaa
+$default-text-shadow-color: #fff
+$default-text-shadow-blur: 5px
+
+@mixin link-button 
+  a, input[type = "submit" ]
+    @include filter-gradient(#a90329, #6d0019, vertical)
+    @include background-image(linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%))
+    border: 2px solid #aaa
+    padding: .8em
+    +link-colors(#fff)
+    +hover-link
 
 body
   background-color: $primary_color
@@ -17,6 +32,9 @@ a
   +link-colors(#888, #a02)
   img
     border: none
+
+.button
+  +anchor-button
 
 .clear
   clear: both
@@ -34,6 +52,7 @@ a
     text-transform: uppercase
     font-weight: bold
     letter-spacing: -.1em
+    +text-shadow
   #userlinks
     float: right
     font-size: 16pt
@@ -54,6 +73,18 @@ a
   margin-top: 20px
   h2
     font-size: 20pt
+    margin-bottom: .5em
+  li
+    a
+      +link-colors(#333, #777)
+      display: block
+      padding: .5em
+      &:hover
+        background: white
+        +box-shadow(#601, 0, 0, 5px)
+    
+#info, .info
+  +info
 
 #flash_notice,
 #flash_error,
@@ -62,41 +93,26 @@ a
   margin: 10px 0
 
 #flash_notice
-  background-color: #ccffcc
-  border: solid 1px #66cc66
+  +success
 
 #flash_error,
 #flash_alert
-  background-color: #ffcccc
-  border: solid 1px #cc6666
+  +error
+  
+form
+  +blueprint-form
+  +link-button
 
 .fieldWithErrors
   display: inline
 
 .error_messages
-  width: 400px
-  border: 2px solid #cf0000
-  padding: 0
-  padding-bottom: 12px
-  margin-bottom: 20px
-  background-color: #f0f0f0
-  font:
-    size: 12px
-  h2
-    text-align: left
-    padding: 5px 5px 5px 15px
-    margin: 0
-    font:
-      weight: bold
-      size: 12px
-    background-color: #cc0000
-    color: white
-  p
-    margin: 8px 10px
+  margin: .5em 0
+  +error
   ul
-    margin: 0
+    margin: .5em
+    li
+      color: black
 
 .content-section
-  border-top: 1px solid black
-  border-left: 1px solid black
-  padding: .5em
+  +info
