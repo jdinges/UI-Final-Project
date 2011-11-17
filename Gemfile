@@ -25,6 +25,8 @@ gem 'therubyracer'
 
 gem 'will_paginate'
 
+gem "compass", ">= 0.11.5"
+
 gem 'nifty-generators', '>= 0.4.0'
 
 gem 'authlogic'
