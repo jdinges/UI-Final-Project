@@ -1,6 +1,8 @@
 -title "#{@user.title} #{@user.name}"
 
-.button= link_to "View all Professors", members_users_path
+= link_to "View all Professors", members_users_path, :class => "button positive"
+
+.clear
 
 #prof-info
   -unless @user.bio.nil?
@@ -22,4 +24,4 @@
         
 -if @user == current_user
   = link_to "Edit", edit_members_user_path, :class => "button positive"
-.button= link_to "View all", members_users_path
+= link_to "View all", members_users_path, :class => "button positive"
