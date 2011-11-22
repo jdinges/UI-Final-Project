@@ -29,4 +29,4 @@
     = f.password_field :password_confirmation
   = f.error_messages
   %p
-    = f.submit (@user.new_record? ? "Sign up" : "Update")
+    = f.submit (@user.new_record? ? "Sign up" : "Update"), :class => "button positive"

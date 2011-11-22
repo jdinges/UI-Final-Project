@@ -1,7 +1,11 @@
 - title "Professors"
 
+#info
+  View information about a professor, including their biography, courses, and papers.
+
 - unless @users.count == 0
-  - for user in @users
-    #prof= link_to "#{user.title} #{user.name}", user
+  %ul
+    - for user in @users
+      %li= link_to "#{user.title} #{user.name}", user_path(user)
 - else
   #zero-count No professors have used this application yet!

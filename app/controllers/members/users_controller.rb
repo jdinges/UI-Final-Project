@@ -39,7 +39,7 @@ class Members::UsersController < ApplicationController
 
   def update
     if @user.update_attributes(params[:user])
-      redirect_to root_url, :notice => "Your profile has been updated."
+      redirect_to members_user_path(@user), :notice => "Your profile has been updated."
     else
       render :action => 'edit'
     end

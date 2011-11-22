@@ -1,6 +1,9 @@
 @import compass/utilities/general/float
 @import blueprint/buttons
 
+$blueprint-button-border-color: #595
+$blueprint-button-hover-border-color: #595
+
 //
   Use the following HTML code to place the buttons on your site:
   
@@ -29,7 +32,7 @@ a.button
   +button-hover-colors
   +button-active-colors
 
-button
+button, input[type="submit"]
   // The +button-button mixin is just like the +anchor-button mixin, but for <button> elements.
   +button-button(left)
   +button-colors
@@ -37,12 +40,12 @@ button
   +button-active-colors
 
 // We can change the colors for buttons of certain classes, etc.
-a.positive, button.positive
+a.positive, button.positive, input[type="submit"].positive
   color: #529214
-  +button-hover-colors(#529214, #E6EFC2, #C6D880)
+  +button-hover-colors(#529214, #E6EFC2)
   +button-active-colors(#FFF, #529214, #529214)
 
-a.negative, button.negative
+a.negative, button.negative, input[type="submit"].negative
   color: #D12F19
   +button-hover-colors(#D12F19, #FBE3E4, #FBC2C4)
   +button-active-colors(#FFF, #D12F19, #D12F19)

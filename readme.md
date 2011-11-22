@@ -2,6 +2,8 @@
 
 You know, for [UI Design](http://mcs.mines.edu/Courses/csci422/)? This time, it's about professors and their websites. It'll be totes magical, because Ruby on Rails.
 
+Written by Ben Makuh, Josh Dinges, Steven Ruppert, Andrew Doppler
+
 ## Goal:
 
 The goal of this project is to create a user-friendly application for professors to easily modify the layout and content of their website.  The idea is to make it intuitive for professors to quickly make a good-looking website that enhances accessibility for visitors.

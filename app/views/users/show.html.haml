@@ -1,6 +1,8 @@
 -title "#{@user.title} #{@user.name}"
 
-.back= link_to "Back", :back
+= link_to "View all Professors", users_path, :class => "button positive"
+
+.clear
 
 #prof-info
   -unless @user.bio.nil?
@@ -20,4 +22,4 @@
       -for paper in @user.papers
         %span= paper.title
         
-.back= link_to "View all", users_path
+= link_to "View all", users_path, :class => "button positive"

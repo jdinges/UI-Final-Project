@@ -11,15 +11,6 @@ $link_color: #aaa
 $default-text-shadow-color: #fff
 $default-text-shadow-blur: 5px
 
-@mixin link-button 
-  a, input[type = "submit" ]
-    @include filter-gradient(#a90329, #6d0019, vertical)
-    @include background-image(linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%))
-    border: 2px solid #aaa
-    padding: .8em
-    +link-colors(#fff)
-    +hover-link
-
 body
   background-color: $primary_color
   margin: 0 !important
@@ -101,7 +92,6 @@ a
   
 form
   +blueprint-form
-  +link-button
 
 .fieldWithErrors
   display: inline
