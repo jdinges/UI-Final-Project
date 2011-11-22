@@ -1,4 +1,10 @@
 UIFinalProject::Application.routes.draw do  
+  root :to => "users#index"
+  
+  namespace :members do
+    root :to => "members/users#index"
+  end
+  
   resources :courses
 
   resources :links
@@ -11,7 +17,6 @@ UIFinalProject::Application.routes.draw do
   resources :roles
   resources :users
   resources :user_sessions
-  root :to => "users#index"
   
   match 'login' => 'user_sessions#new', :as => :login
   match 'signup' => 'users#new', :as => :signup

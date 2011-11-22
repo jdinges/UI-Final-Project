@@ -38,12 +38,15 @@ a
   @include filter-gradient(#a90329, #6d0019, vertical)
   @include background-image(linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%))
   h1
-    font-size: 26pt
-    float: left
-    text-transform: uppercase
-    font-weight: bold
-    letter-spacing: -.1em
-    +text-shadow
+    a
+      color: $primary_color
+      font-size: 26pt
+      float: left
+      text-transform: uppercase
+      text-decoration: none
+      font-weight: bold
+      letter-spacing: -.1em
+      +text-shadow
   #userlinks
     float: right
     font-size: 16pt

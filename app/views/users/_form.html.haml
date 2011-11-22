@@ -21,10 +21,6 @@
     %br
     = f.text_area :bio
   %p
-    = f.label :papers
-    %br
-    = f.text_field :papers
-  %p
     = f.label :password
     %br
     = f.password_field :password
@@ -33,4 +29,4 @@
     %br
     = f.password_field :password_confirmation
   %p
-    = f.submit (@user.new_record? ? "Sign up" : "Update")
+    = f.submit (@user.new_record? ? "Sign up" : "Update"), :class => "button positive"

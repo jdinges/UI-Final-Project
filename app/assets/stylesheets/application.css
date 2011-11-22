@@ -136,26 +136,28 @@ a img {
   background-image: -ms-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
   background-image: linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
 }
-/* line 40, sass/application.sass */
-#header h1 {
+/* line 41, sass/application.sass */
+#header h1 a {
+  color: white;
   font-size: 26pt;
   float: left;
   text-transform: uppercase;
+  text-decoration: none;
   font-weight: bold;
   letter-spacing: -0.1em;
   text-shadow: white 0px 0px 5px;
 }
-/* line 47, sass/application.sass */
+/* line 50, sass/application.sass */
 #header #userlinks {
   float: right;
   font-size: 16pt;
   margin: 0.5em;
 }
-/* line 51, sass/application.sass */
+/* line 54, sass/application.sass */
 #header #userlinks span {
   display: inline !important;
 }
-/* line 53, sass/application.sass */
+/* line 56, sass/application.sass */
 #header #userlinks a {
   color: #cccccc;
   text-decoration: none;
@@ -171,7 +173,7 @@ a img {
   text-decoration: underline;
 }
 
-/* line 59, sass/application.sass */
+/* line 62, sass/application.sass */
 #container {
   width: 75%;
   margin: 0 auto;
@@ -184,12 +186,12 @@ a img {
   padding: 20px 40px;
   margin-top: 20px;
 }
-/* line 65, sass/application.sass */
+/* line 68, sass/application.sass */
 #container h2 {
   font-size: 20pt;
   margin-bottom: 0.5em;
 }
-/* line 69, sass/application.sass */
+/* line 72, sass/application.sass */
 #container li a {
   color: #333333;
   display: block;
@@ -199,7 +201,7 @@ a img {
 #container li a:hover {
   color: #777777;
 }
-/* line 73, sass/application.sass */
+/* line 76, sass/application.sass */
 #container li a:hover {
   background: white;
   -moz-box-shadow: 0 0 5px #660011;
@@ -208,7 +210,7 @@ a img {
   box-shadow: 0 0 5px #660011;
 }
 
-/* line 77, sass/application.sass */
+/* line 80, sass/application.sass */
 #info, .info {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -222,7 +224,7 @@ a img {
   color: #205791;
 }
 
-/* line 80, sass/application.sass */
+/* line 83, sass/application.sass */
 #flash_notice,
 #flash_error,
 #flash_alert {
@@ -230,7 +232,7 @@ a img {
   margin: 10px 0;
 }
 
-/* line 86, sass/application.sass */
+/* line 89, sass/application.sass */
 #flash_notice {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -244,7 +246,7 @@ a img {
   color: #264409;
 }
 
-/* line 89, sass/application.sass */
+/* line 92, sass/application.sass */
 #flash_error,
 #flash_alert {
   padding: 0.8em;
@@ -324,12 +326,12 @@ form textarea {
   height: 250px;
 }
 
-/* line 96, sass/application.sass */
+/* line 99, sass/application.sass */
 .fieldWithErrors {
   display: inline;
 }
 
-/* line 99, sass/application.sass */
+/* line 102, sass/application.sass */
 .error_messages {
   margin: 0.5em 0;
   padding: 0.8em;
@@ -343,16 +345,16 @@ form textarea {
 .error_messages a {
   color: #8a1f11;
 }
-/* line 102, sass/application.sass */
+/* line 105, sass/application.sass */
 .error_messages ul {
   margin: 0.5em;
 }
-/* line 104, sass/application.sass */
+/* line 107, sass/application.sass */
 .error_messages ul li {
   color: black;
 }
 
-/* line 107, sass/application.sass */
+/* line 110, sass/application.sass */
 .content-section {
   padding: 0.8em;
   margin-bottom: 1em;
