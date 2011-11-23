@@ -32,7 +32,7 @@ a.button
   +button-hover-colors
   +button-active-colors
 
-button, input[type="submit"]
+button, input[type="submit"], .buttonbutton
   // The +button-button mixin is just like the +anchor-button mixin, but for <button> elements.
   +button-button(left)
   +button-colors
@@ -41,6 +41,7 @@ button, input[type="submit"]
 
 // We can change the colors for buttons of certain classes, etc.
 a.positive, button.positive, input[type="submit"].positive
+  @extend .buttonbutton
   color: #529214
   +button-hover-colors(#529214, #E6EFC2)
   +button-active-colors(#FFF, #529214, #529214)

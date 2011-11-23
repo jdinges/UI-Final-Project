@@ -1,5 +1,8 @@
 -title "#{@user.title} #{@user.name}"
 
+-content_for :style_name do
+  = "#{@user.style_name}"
+
 = link_to "View all Professors", users_path, :class => "button positive"
 
 .clear

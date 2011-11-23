@@ -8,6 +8,8 @@
 @import "blueprint/typography"
 
 $primary_color: #fff
+$gradient_top: #000
+$gradient_bottom: #000
 $link_color: #aaa
 $default-text-shadow-color: #fff
 $default-text-shadow-blur: 5px
@@ -35,9 +37,9 @@ a
 
 #header
   color: $primary_color
-  background-color: #a90329
-  @include filter-gradient(#a90329, #6d0019, vertical)
-  @include background-image(linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%))
+  background-color: $gradient_top
+  @include filter-gradient($gradient_top, $gradient_bottom, vertical)
+  @include background-image(linear-gradient(top, $gradient_top 0%, $gradient_bottom 100%))
   h1
     a
       color: $primary_color
@@ -112,7 +114,7 @@ form
       color: black
 
 .content-section
-  +info
+  +error
   h3
     +header-text
     font-size: 12pt

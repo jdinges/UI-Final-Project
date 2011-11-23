@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 15, sass/application.sass */
+/* line 17, sass/noir.sass */
 body {
   background-color: white;
   margin: 0 !important;
@@ -71,7 +71,7 @@ body {
   font-size: 14px;
 }
 
-/* line 22, sass/application.sass */
+/* line 24, sass/noir.sass */
 a {
   color: #888888;
 }
@@ -79,12 +79,12 @@ a {
 a:hover {
   color: #aa0022;
 }
-/* line 25, sass/application.sass */
+/* line 27, sass/noir.sass */
 a img {
   border: none;
 }
 
-/* line 28, sass/application.sass */
+/* line 30, sass/noir.sass */
 .button, form input[type="submit"] {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -116,27 +116,27 @@ a img {
   float: none;
 }
 
-/* line 31, sass/application.sass */
+/* line 33, sass/noir.sass */
 .clear {
   clear: both;
   height: 0;
   overflow: hidden;
 }
 
-/* line 36, sass/application.sass */
+/* line 38, sass/noir.sass */
 #header {
   color: white;
-  background-color: #a90329;
+  background-color: black;
   *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFA90329', endColorstr='#FF6D0019');
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a90329), color-stop(44%, #8f0222), color-stop(100%, #6d0019));
-  background-image: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
-  background-image: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
-  background-image: -o-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
-  background-image: -ms-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
-  background-image: linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF000000', endColorstr='#FF000000');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #000000), color-stop(100%, #000000));
+  background-image: -webkit-linear-gradient(top, #000000 0%, #000000 100%);
+  background-image: -moz-linear-gradient(top, #000000 0%, #000000 100%);
+  background-image: -o-linear-gradient(top, #000000 0%, #000000 100%);
+  background-image: -ms-linear-gradient(top, #000000 0%, #000000 100%);
+  background-image: linear-gradient(top, #000000 0%, #000000 100%);
 }
-/* line 42, sass/application.sass */
+/* line 44, sass/noir.sass */
 #header h1 a {
   color: white;
   font-size: 26pt;
@@ -147,17 +147,17 @@ a img {
   letter-spacing: -0.1em;
   text-shadow: white 0px 0px 5px;
 }
-/* line 51, sass/application.sass */
+/* line 53, sass/noir.sass */
 #header #userlinks {
   float: right;
   font-size: 16pt;
   margin: 0.5em;
 }
-/* line 55, sass/application.sass */
+/* line 57, sass/noir.sass */
 #header #userlinks span {
   display: inline !important;
 }
-/* line 57, sass/application.sass */
+/* line 59, sass/noir.sass */
 #header #userlinks a {
   color: #cccccc;
   text-decoration: none;
@@ -173,7 +173,7 @@ a img {
   text-decoration: underline;
 }
 
-/* line 63, sass/application.sass */
+/* line 65, sass/noir.sass */
 #container {
   width: 75%;
   margin: 0 auto;
@@ -186,12 +186,12 @@ a img {
   padding: 20px 40px;
   margin-top: 20px;
 }
-/* line 69, sass/application.sass */
+/* line 71, sass/noir.sass */
 #container h2 {
   font-size: 20pt;
   margin-bottom: 0.5em;
 }
-/* line 73, sass/application.sass */
+/* line 75, sass/noir.sass */
 #container li a {
   color: #333333;
   display: block;
@@ -201,7 +201,7 @@ a img {
 #container li a:hover {
   color: #777777;
 }
-/* line 77, sass/application.sass */
+/* line 79, sass/noir.sass */
 #container li a:hover {
   background: white;
   -moz-box-shadow: 0 0 5px #660011;
@@ -210,7 +210,7 @@ a img {
   box-shadow: 0 0 5px #660011;
 }
 
-/* line 81, sass/application.sass */
+/* line 83, sass/noir.sass */
 #info, .info {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -224,7 +224,7 @@ a img {
   color: #205791;
 }
 
-/* line 84, sass/application.sass */
+/* line 86, sass/noir.sass */
 #flash_notice,
 #flash_error,
 #flash_alert {
@@ -232,7 +232,7 @@ a img {
   margin: 10px 0;
 }
 
-/* line 90, sass/application.sass */
+/* line 92, sass/noir.sass */
 #flash_notice {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -246,7 +246,7 @@ a img {
   color: #264409;
 }
 
-/* line 93, sass/application.sass */
+/* line 95, sass/noir.sass */
 #flash_error,
 #flash_alert {
   padding: 0.8em;
@@ -326,12 +326,12 @@ form textarea {
   height: 250px;
 }
 
-/* line 103, sass/application.sass */
+/* line 105, sass/noir.sass */
 .fieldWithErrors {
   display: inline;
 }
 
-/* line 106, sass/application.sass */
+/* line 108, sass/noir.sass */
 .error_messages {
   margin: 0.5em 0;
   padding: 0.8em;
@@ -345,29 +345,29 @@ form textarea {
 .error_messages a {
   color: #8a1f11;
 }
-/* line 109, sass/application.sass */
+/* line 111, sass/noir.sass */
 .error_messages ul {
   margin: 0.5em;
 }
-/* line 111, sass/application.sass */
+/* line 113, sass/noir.sass */
 .error_messages ul li {
   color: black;
 }
 
-/* line 114, sass/application.sass */
+/* line 116, sass/noir.sass */
 .content-section {
   padding: 0.8em;
   margin-bottom: 1em;
   border: 2px solid #dddddd;
-  background: #d5edf8;
-  color: #205791;
-  border-color: #92cae4;
+  background: #fbe3e4;
+  color: #8a1f11;
+  border-color: #fbc2c4;
 }
-/* line 54, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 .content-section a {
-  color: #205791;
+  color: #8a1f11;
 }
-/* line 116, sass/application.sass */
+/* line 118, sass/noir.sass */
 .content-section h3 {
   font-weight: normal;
   color: #222222;
