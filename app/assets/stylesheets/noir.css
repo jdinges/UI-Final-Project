@@ -65,7 +65,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 17, sass/noir.sass */
 body {
-  background-color: white;
+  background-color: black;
   margin: 0 !important;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
@@ -177,21 +177,18 @@ a img {
 #container {
   width: 75%;
   margin: 0 auto;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dddddd), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  background-image: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  background-image: -o-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  background-image: -ms-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  background-image: linear-gradient(top, #dddddd 0%, #ffffff 100%);
+  background: #333333;
+  border: 1px solid #888888;
   padding: 20px 40px;
   margin-top: 20px;
 }
-/* line 71, sass/noir.sass */
+/* line 72, sass/noir.sass */
 #container h2 {
   font-size: 20pt;
   margin-bottom: 0.5em;
+  color: white;
 }
-/* line 75, sass/noir.sass */
+/* line 77, sass/noir.sass */
 #container li a {
   color: #333333;
   display: block;
@@ -201,7 +198,7 @@ a img {
 #container li a:hover {
   color: #777777;
 }
-/* line 79, sass/noir.sass */
+/* line 81, sass/noir.sass */
 #container li a:hover {
   background: white;
   -moz-box-shadow: 0 0 5px #660011;
@@ -210,7 +207,7 @@ a img {
   box-shadow: 0 0 5px #660011;
 }
 
-/* line 83, sass/noir.sass */
+/* line 85, sass/noir.sass */
 #info, .info {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -224,7 +221,7 @@ a img {
   color: #205791;
 }
 
-/* line 86, sass/noir.sass */
+/* line 88, sass/noir.sass */
 #flash_notice,
 #flash_error,
 #flash_alert {
@@ -232,7 +229,7 @@ a img {
   margin: 10px 0;
 }
 
-/* line 92, sass/noir.sass */
+/* line 94, sass/noir.sass */
 #flash_notice {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -246,7 +243,7 @@ a img {
   color: #264409;
 }
 
-/* line 95, sass/noir.sass */
+/* line 97, sass/noir.sass */
 #flash_error,
 #flash_alert {
   padding: 0.8em;
@@ -326,12 +323,12 @@ form textarea {
   height: 250px;
 }
 
-/* line 105, sass/noir.sass */
+/* line 107, sass/noir.sass */
 .fieldWithErrors {
   display: inline;
 }
 
-/* line 108, sass/noir.sass */
+/* line 110, sass/noir.sass */
 .error_messages {
   margin: 0.5em 0;
   padding: 0.8em;
@@ -345,16 +342,16 @@ form textarea {
 .error_messages a {
   color: #8a1f11;
 }
-/* line 111, sass/noir.sass */
+/* line 113, sass/noir.sass */
 .error_messages ul {
   margin: 0.5em;
 }
-/* line 113, sass/noir.sass */
+/* line 115, sass/noir.sass */
 .error_messages ul li {
   color: black;
 }
 
-/* line 116, sass/noir.sass */
+/* line 118, sass/noir.sass */
 .content-section {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -367,7 +364,7 @@ form textarea {
 .content-section a {
   color: #8a1f11;
 }
-/* line 118, sass/noir.sass */
+/* line 120, sass/noir.sass */
 .content-section h3 {
   font-weight: normal;
   color: #222222;
