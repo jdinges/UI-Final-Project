@@ -8,8 +8,8 @@
 @import "blueprint/interaction"
 @import "blueprint/buttons"
 
-$primary_color: #000
-$link_color: #ccc
+$primary_color: #fff
+$link_color: #aaa
 $gradient_begin: #a90329
 $gradient_end: #6d0019
 $default-text-shadow-color: $primary_color
@@ -39,16 +39,13 @@ a
       +hover-link
       
 #container
-  background: adjust-lightness($primary_color, 20%)
-  border: 1px solid adjust-lightness($primary_color, 50%)
-  h2
-    color: $link_color
+  @include background-image(linear-gradient(top, #ddd 0%, #fff 100%))
   li
     a
       +link-colors(#333, #777)
       &:hover
         background: white
-        +box-shadow(#601, 0, 0, 5px)
+        +box-shadow(adjust-lightness($default-text-shadow-color, -50%), 0, 0, 5px)
 
 #info, .info
   +info

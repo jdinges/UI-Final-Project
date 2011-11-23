@@ -63,21 +63,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 18, sass/noir.sass */
+/* line 18, sass/application_colors.sass */
 body {
-  background-color: black;
+  background-color: white;
 }
 
-/* line 21, sass/noir.sass */
+/* line 21, sass/application_colors.sass */
 a {
-  color: #cccccc;
+  color: #aaaaaa;
 }
 /* line 24, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 a:hover {
-  color: white;
+  color: #dddddd;
 }
 
-/* line 25, sass/noir.sass */
+/* line 25, sass/application_colors.sass */
 .button, form input[type="submit"] {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -109,9 +109,9 @@ a:hover {
   float: none;
 }
 
-/* line 28, sass/noir.sass */
+/* line 28, sass/application_colors.sass */
 #header {
-  color: black;
+  color: white;
   background-color: #a90329;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFA90329', endColorstr='#FF6D0019');
@@ -122,12 +122,12 @@ a:hover {
   background-image: -ms-linear-gradient(top, #a90329 0%, #6d0019 100%);
   background-image: linear-gradient(top, #a90329 0%, #6d0019 100%);
 }
-/* line 34, sass/noir.sass */
+/* line 34, sass/application_colors.sass */
 #header h1 a {
-  color: black;
-  text-shadow: black 0px 0px 5px;
+  color: white;
+  text-shadow: white 0px 0px 5px;
 }
-/* line 38, sass/noir.sass */
+/* line 38, sass/application_colors.sass */
 #header #userlinks a {
   text-decoration: none;
 }
@@ -136,16 +136,16 @@ a:hover {
   text-decoration: underline;
 }
 
-/* line 41, sass/noir.sass */
+/* line 41, sass/application_colors.sass */
 #container {
-  background: #333333;
-  border: 1px solid gray;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dddddd), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+  background-image: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+  background-image: -o-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+  background-image: -ms-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+  background-image: linear-gradient(top, #dddddd 0%, #ffffff 100%);
 }
-/* line 44, sass/noir.sass */
-#container h2 {
-  color: #cccccc;
-}
-/* line 47, sass/noir.sass */
+/* line 44, sass/application_colors.sass */
 #container li a {
   color: #333333;
 }
@@ -153,16 +153,16 @@ a:hover {
 #container li a:hover {
   color: #777777;
 }
-/* line 49, sass/noir.sass */
+/* line 46, sass/application_colors.sass */
 #container li a:hover {
   background: white;
-  -moz-box-shadow: 0 0 5px #660011;
-  -webkit-box-shadow: 0 0 5px #660011;
-  -o-box-shadow: 0 0 5px #660011;
-  box-shadow: 0 0 5px #660011;
+  -moz-box-shadow: 0 0 5px gray;
+  -webkit-box-shadow: 0 0 5px gray;
+  -o-box-shadow: 0 0 5px gray;
+  box-shadow: 0 0 5px gray;
 }
 
-/* line 53, sass/noir.sass */
+/* line 50, sass/application_colors.sass */
 #info, .info {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -176,7 +176,7 @@ a:hover {
   color: #205791;
 }
 
-/* line 56, sass/noir.sass */
+/* line 53, sass/application_colors.sass */
 #flash_notice {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -190,7 +190,7 @@ a:hover {
   color: #264409;
 }
 
-/* line 59, sass/noir.sass */
+/* line 56, sass/application_colors.sass */
 #flash_error,
 #flash_alert {
   padding: 0.8em;
@@ -270,12 +270,12 @@ form textarea {
   height: 250px;
 }
 
-/* line 69, sass/noir.sass */
+/* line 66, sass/application_colors.sass */
 .field_with_errors {
   background: yellow;
 }
 
-/* line 72, sass/noir.sass */
+/* line 69, sass/application_colors.sass */
 .error_messages {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -289,7 +289,7 @@ form textarea {
   color: #8a1f11;
 }
 
-/* line 75, sass/noir.sass */
+/* line 72, sass/application_colors.sass */
 .content-section {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -302,7 +302,7 @@ form textarea {
 .content-section a {
   color: #205791;
 }
-/* line 77, sass/noir.sass */
+/* line 74, sass/application_colors.sass */
 .content-section h3 {
   font-weight: normal;
   color: #222222;

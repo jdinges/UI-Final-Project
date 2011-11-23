@@ -1,5 +1,5 @@
 #userlinks
   %span
     You are logged in as
-    ="#{current_user}."
+    =link_to "#{current_user}.", members_user_path(current_user)
   = link_to 'Log Out', logout_path

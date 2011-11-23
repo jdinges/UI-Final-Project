@@ -1,32 +1,12 @@
-@import compass/reset
-@import compass/css3
-@import compass/utilities
-@import "blueprint/link-icons"
-@import "blueprint/interaction"
-@import "blueprint/form"
-@import "blueprint/buttons"
-@import "blueprint/typography"
-
-$primary_color: #fff
-$link_color: #aaa
-$default-text-shadow-color: #fff
-$default-text-shadow-blur: 5px
-
 body
-  background-color: $primary_color
   margin: 0 !important
   font:
     family: Verdana, Helvetica, Arial
     size: 14px
 
 a
-  // normal, hover
-  +link-colors(#888, #a02)
   img
     border: none
-
-.button
-  +anchor-button
 
 .clear
   clear: both
@@ -34,20 +14,14 @@ a
   overflow: hidden
 
 #header
-  color: $primary_color
-  background-color: #a90329
-  @include filter-gradient(#a90329, #6d0019, vertical)
-  @include background-image(linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%))
   h1
     a
-      color: $primary_color
       font-size: 26pt
       float: left
       text-transform: uppercase
       text-decoration: none
       font-weight: bold
       letter-spacing: -.1em
-      +text-shadow
   #userlinks
     float: right
     font-size: 16pt
@@ -55,15 +29,12 @@ a
     span
       display: inline !important
     a
-      +link-colors(#ccc, #fff)
-      +hover-link
       text-decoration: none
       display: inline
 
 #container
   width: 75%
   margin: 0 auto
-  @include background-image(linear-gradient(top, #ddd 0%, #fff 100%))
   padding: 20px 40px
   margin-top: 20px
   h2
@@ -71,15 +42,8 @@ a
     margin-bottom: .5em
   li
     a
-      +link-colors(#333, #777)
       display: block
       padding: .5em
-      &:hover
-        background: white
-        +box-shadow(#601, 0, 0, 5px)
-    
-#info, .info
-  +info
 
 #flash_notice,
 #flash_error,
@@ -87,33 +51,17 @@ a
   padding: 5px 8px
   margin: 10px 0
 
-#flash_notice
-  +success
-
-#flash_error,
-#flash_alert
-  +error
-  
-form
-  +blueprint-form
-  input[type="submit"]
-    @extend .button
-    @extend .positive
-
 .fieldWithErrors
   display: inline
 
 .error_messages
   margin: .5em 0
-  +error
   ul
     margin: .5em
     li
       color: black
 
 .content-section
-  +info
   h3
-    +header-text
     font-size: 12pt
     margin-bottom: .5em
