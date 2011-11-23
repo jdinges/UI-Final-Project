@@ -63,21 +63,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 18, sass/application_colors.sass */
+/* line 19, sass/black_and_white.sass */
 body {
   background-color: white;
+  color: black;
 }
 
-/* line 21, sass/application_colors.sass */
+/* line 23, sass/black_and_white.sass */
 a {
-  color: white;
-}
-/* line 24, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
-a:hover {
-  color: white;
+  color: blue;
 }
 
-/* line 25, sass/application_colors.sass */
+/* line 27, sass/black_and_white.sass */
 .button, form input[type="submit"] {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -109,25 +106,23 @@ a:hover {
   float: none;
 }
 
-/* line 28, sass/application_colors.sass */
+/* line 30, sass/black_and_white.sass */
 #header {
-  color: #cccccc;
-  background-color: #a90329;
+  background-color: white;
   *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFA90329', endColorstr='#FF6D0019');
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a90329), color-stop(100%, #6d0019));
-  background-image: -webkit-linear-gradient(top, #a90329 0%, #6d0019 100%);
-  background-image: -moz-linear-gradient(top, #a90329 0%, #6d0019 100%);
-  background-image: -o-linear-gradient(top, #a90329 0%, #6d0019 100%);
-  background-image: -ms-linear-gradient(top, #a90329 0%, #6d0019 100%);
-  background-image: linear-gradient(top, #a90329 0%, #6d0019 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFFFFFFF');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+  background-image: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+  background-image: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+  background-image: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+  background-image: linear-gradient(top, #ffffff 0%, #ffffff 100%);
 }
-/* line 34, sass/application_colors.sass */
+/* line 35, sass/black_and_white.sass */
 #header h1 a {
-  color: white;
   text-shadow: white 0px 0px 5px;
 }
-/* line 38, sass/application_colors.sass */
+/* line 38, sass/black_and_white.sass */
 #header #userlinks a {
   text-decoration: none;
 }
@@ -136,24 +131,11 @@ a:hover {
   text-decoration: underline;
 }
 
-/* line 41, sass/application_colors.sass */
-#container {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dddddd), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  background-image: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  background-image: -o-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  background-image: -ms-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  background-image: linear-gradient(top, #dddddd 0%, #ffffff 100%);
-}
-/* line 44, sass/application_colors.sass */
+/* line 43, sass/black_and_white.sass */
 #container li a {
   color: #333333;
 }
-/* line 24, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
-#container li a:hover {
-  color: #777777;
-}
-/* line 46, sass/application_colors.sass */
+/* line 45, sass/black_and_white.sass */
 #container li a:hover {
   background: white;
   -moz-box-shadow: 0 0 5px gray;
@@ -162,7 +144,7 @@ a:hover {
   box-shadow: 0 0 5px gray;
 }
 
-/* line 50, sass/application_colors.sass */
+/* line 49, sass/black_and_white.sass */
 #info, .info {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -176,7 +158,7 @@ a:hover {
   color: #205791;
 }
 
-/* line 53, sass/application_colors.sass */
+/* line 52, sass/black_and_white.sass */
 #flash_notice {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -190,7 +172,7 @@ a:hover {
   color: #264409;
 }
 
-/* line 56, sass/application_colors.sass */
+/* line 55, sass/black_and_white.sass */
 #flash_error,
 #flash_alert {
   padding: 0.8em;
@@ -270,12 +252,12 @@ form textarea {
   height: 250px;
 }
 
-/* line 66, sass/application_colors.sass */
+/* line 65, sass/black_and_white.sass */
 .field_with_errors {
   background: yellow;
 }
 
-/* line 69, sass/application_colors.sass */
+/* line 68, sass/black_and_white.sass */
 .error_messages {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -289,20 +271,13 @@ form textarea {
   color: #8a1f11;
 }
 
-/* line 72, sass/application_colors.sass */
+/* line 71, sass/black_and_white.sass */
 .content-section {
   padding: 0.8em;
   margin-bottom: 1em;
   border: 2px solid #dddddd;
-  background: #d5edf8;
-  color: #205791;
-  border-color: #92cae4;
 }
-/* line 54, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
-.content-section a {
-  color: #205791;
-}
-/* line 74, sass/application_colors.sass */
+/* line 73, sass/black_and_white.sass */
 .content-section h3 {
   font-weight: normal;
   color: #222222;

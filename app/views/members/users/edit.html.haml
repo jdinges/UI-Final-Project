@@ -1,5 +1,11 @@
 - title "Edit your Profile"
 
+= link_to "Add a course", new_members_course_path(current_user), :class => "button positive"
+
+.clear
+
 = render 'form'
+
+.clear
 
 = link_to "Cancel", :back, :class => "button negative"

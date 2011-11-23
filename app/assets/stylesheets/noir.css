@@ -294,13 +294,13 @@ form textarea {
   padding: 0.8em;
   margin-bottom: 1em;
   border: 2px solid #dddddd;
-  background: #d5edf8;
-  color: #205791;
-  border-color: #92cae4;
+  background: #fff6bf;
+  color: #514721;
+  border-color: #ffd324;
 }
-/* line 54, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+/* line 36, ../../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 .content-section a {
-  color: #205791;
+  color: #514721;
 }
 /* line 77, sass/noir.sass */
 .content-section h3 {

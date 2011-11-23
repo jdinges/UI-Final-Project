@@ -40,13 +40,14 @@ button, input[type="submit"], .buttonbutton
   +button-active-colors
 
 // We can change the colors for buttons of certain classes, etc.
-a.positive, button.positive, input[type="submit"].positive
+a.positive, button.positive, input[type="submit"]
   @extend .buttonbutton
   color: #529214
   +button-hover-colors(#529214, #E6EFC2)
   +button-active-colors(#FFF, #529214, #529214)
 
 a.negative, button.negative, input[type="submit"].negative
+  @extend .button
   color: #D12F19
   +button-hover-colors(#D12F19, #FBE3E4, #FBC2C4)
   +button-active-colors(#FFF, #D12F19, #D12F19)
