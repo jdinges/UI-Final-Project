@@ -17,15 +17,21 @@
     .content-section
       %h3 Courses
       -for course in @user.courses
-        =link_to course.title, course.link
+        =link_to "#{course.title}", course.link
+        %br
+
+  -if current_user == @user
+    %h4 Add Course
+    =link_to "+Course", new_members_course_path(current_user)
       
   -unless @user.papers.count == 0
     .content-section
       %h3 Papers
       -for paper in @user.papers
-        %span= paper.title
+        %p= paper.title
 
-  %h4 Add Paper
-  =link_to "+Papers", @user.papers.create
+  -if current_user == @user
+    %h4 Add Paper
+    =link_to "+Paper", new_members_paper_path(current_user)
         
 = link_to "View all Professors", users_path, :class => "button positive"

@@ -17,7 +17,7 @@ class Members::PapersController < ApplicationController
     @paper = Paper.new(params[:paper])
     @paper.user = current_user
     if @paper.save
-      redirect_to members_paper_path(@paper), :notice => "Successfully created paper."
+      redirect_to members_user_path(@paper), :notice => "Successfully created paper."
     else
       render :action => 'new'
     end
