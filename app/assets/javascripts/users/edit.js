@@ -29,4 +29,5 @@ $(function() {
 			inline: "true"
 		}
 	});
+	$('.style-switcher').each(:	
 });

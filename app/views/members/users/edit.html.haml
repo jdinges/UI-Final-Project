@@ -5,7 +5,7 @@
 #style-switcher
   %h3 Choose a style for your page:
   -for style in @styles
-    =link_to style.name, "#"
+    =link_to style.name, "#", :id => style.name, :class => "style-switcher"
 
 = render 'form'
 
