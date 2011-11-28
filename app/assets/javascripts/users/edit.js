@@ -18,6 +18,7 @@ $(function() {
 	//});
 	$('.editable').editable('.', {
 		type: "textarea",
+		rows: 5,
 		cancel: "Cancel",
 		submit: "Save",
 		indicator: "Saving...",
