@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(:version => 20111123193343) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",              :default => "John Doe",        :null => false
+    t.string   "name",              :default => "John Doe",               :null => false
     t.string   "title"
     t.string   "bio"
-    t.string   "style_name",        :default => "application.css", :null => false
+    t.string   "style_name",        :default => "application_colors.css", :null => false
   end
 
 end
