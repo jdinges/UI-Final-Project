@@ -18,10 +18,6 @@ $default-text-shadow-blur: 5px
 body
   background-color: $primary_color
   
-a
-  // normal, hover
-  +link-colors($link_color, adjust-lightness($link_color, 20%))
-
 .button
   +anchor-button
   
@@ -37,6 +33,7 @@ a
   #userlinks
     a
       +hover-link
+      +link-colors($link_color, adjust-lightness($link_color, 20%))
       
 #container
   @include background-image(linear-gradient(top, #ddd 0%, #fff 100%))
