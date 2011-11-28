@@ -1,6 +1,7 @@
 class Members::UsersController < ApplicationController
   before_filter :login_required
   before_filter :find_user, :only => [:edit, :update]
+  before_filter :styles, :only => [:edit, :update]
 
   def new
     @user = User.new
@@ -57,5 +58,9 @@ class Members::UsersController < ApplicationController
 
     def find_user
       @user = current_user
+    end
+    
+    def styles
+      @styles = Styles.all
     end
 end
