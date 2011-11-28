@@ -39,11 +39,18 @@ class Members::UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(params[:user])
-      redirect_to members_user_path(@user), :notice => "Your profile has been updated."
-    else
-      render :action => 'edit'
-    end
+    @user = User.find(params[:id])
+	if params[:inline].eql? "true" 
+	  if @user.update_attributes(params[:user])
+		render :text => @user.bio
+	  end
+	else
+	  if @user.update_attributes(params[:user])
+	    redirect_to members_user_path(@user), :notice => "Your profile has been updated."
+	  else
+	    render :action => 'edit'
+	  end
+	end
   end
   
   private
