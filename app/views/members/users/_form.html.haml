@@ -1,12 +1,28 @@
+=javascript_include_tag "users/edit.js"
 = form_for [:members, @user] do |f|
-  %p
-    = f.label :username
-    %br
-    = f.text_field :username
-  %p
-    = f.label :email, "Email Address"
-    %br
-    = f.text_field :email
+  %fieldset
+    %legend Account Details
+    %p
+      = f.label :username
+      %br
+      = f.text_field :username
+    %p
+      = f.label :email, "Email Address"
+      %br
+      = f.text_field :email
+    %p
+      = f.label :style_name, "Pick the style you want for your page"
+      %br
+      = f.text_field :style_name
+    %p
+      = f.label :password
+      %br
+      = f.password_field :password
+    %p
+      = f.label :password_confirmation, "Confirm Password"
+      %br
+      = f.password_field :password_confirmation
+  
   %p
     = f.label :name
     %br
@@ -15,18 +31,27 @@
     = f.label :title
     %br
     = f.text_field :title
-  %p
-    = f.label :bio, "A short biography of yourself"
-    %br
-    = f.text_area :bio
-  %p
-    = f.label :password
-    %br
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation, "Confirm Password"
-    %br
-    = f.password_field :password_confirmation
+
+  #layout
+    .content-section
+      %h3 Bio
+      %p(id="bio" class="editable")= @user.bio
+      -#= f.text_area :bio
+
+    .content-section
+      %h3 Papers
+      %ul(id="papers" class="sortable")
+        %li= link_to("New Paper", new_members_paper_path(current_user))
+        -for paper in @user.papers
+          %li(class="sortable" id="paper_#{paper.id}")= paper.title 
+    
+    .content-section
+      %h3 Courses
+      %ul(id="courses" class="sortable")
+        %li= link_to("New Course", new_members_course_path(current_user))
+        -for course in @user.courses
+          %li(class="sortable" id="course_#{course.id}")= course.title 
+
   = f.error_messages
   %p
-    = f.submit (@user.new_record? ? "Sign up" : "Update"), :class => "button positive"
+    = f.submit (@user.new_record? ? "Sign up" : "Update")

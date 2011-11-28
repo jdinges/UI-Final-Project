@@ -2,7 +2,7 @@ UIFinalProject::Application.routes.draw do
   root :to => "users#index"
   
   namespace :members do
-    root :to => "members/users#index"
+    root :to => "users#index"
   end
   
   resources :courses

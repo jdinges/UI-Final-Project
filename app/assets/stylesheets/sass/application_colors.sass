@@ -1,0 +1,72 @@
+@import compass/utilities
+@import compass/css3
+@import compass/reset
+@import compass/css3
+@import compass/typography/links/hover-link
+@import "blueprint/form"
+@import "blueprint/typography"
+@import "blueprint/interaction"
+@import "blueprint/buttons"
+
+$primary_color: #fff
+$link_color: #fff
+$gradient_begin: #a90329
+$gradient_end: #6d0019
+$default-text-shadow-color: $primary_color
+$default-text-shadow-blur: 5px
+
+body
+  background-color: $primary_color
+  
+.button
+  +anchor-button
+  
+#header
+  color: adjust-lightness($primary_color, -20%)
+  background-color: $gradient_begin
+  @include filter-gradient($gradient_begin, $gradient_end, vertical)
+  @include background-image(linear-gradient(top, $gradient_begin 0%, $gradient_end 100%))
+  h1 
+    a
+      color: $primary_color
+      +text-shadow
+  #userlinks
+    a
+      +hover-link
+      +link-colors($link_color, adjust-lightness($link_color, 20%))
+      
+#container
+  @include background-image(linear-gradient(top, #ddd 0%, #fff 100%))
+  li
+    a
+      +link-colors(#333, #777)
+      &:hover
+        background: white
+        +box-shadow(adjust-lightness($default-text-shadow-color, -50%), 0, 0, 5px)
+
+#info, .info
+  +info
+
+#flash_notice
+  +success
+
+#flash_error,
+#flash_alert
+  +error
+  
+form
+  +blueprint-form
+  input[type="submit"]
+    @extend .button
+    @extend .positive
+    
+.field_with_errors
+  +highlight
+  
+.error_messages
+  +error
+  
+.content-section
+  +info
+  h3
+    +header-text
