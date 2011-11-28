@@ -1,3 +1,4 @@
+=javascript_include_tag "users/edit.js"
 = form_for [:members, @user] do |f|
   %p
     = f.label :username
@@ -31,6 +32,14 @@
     = f.label :password_confirmation, "Confirm Password"
     %br
     = f.password_field :password_confirmation
+  
+  .content-section
+    %h3 Papers
+    %ul(id="papers")
+      %li= link_to("New Paper", new_members_paper_path)
+      -for paper in @user.papers
+        %li(class="sortable" id="paper_#{paper.id}")= paper.title 
+  
   = f.error_messages
   %p
     = f.submit (@user.new_record? ? "Sign up" : "Update")

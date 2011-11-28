@@ -22,8 +22,9 @@
   -unless @user.papers.count == 0
     .content-section
       %h3 Papers
-      -for paper in @user.papers
-        %span= paper.title
+      %ul
+        -for paper in @user.papers
+          %li= paper.title
         
 -if @user == current_user
   = link_to "Edit", edit_members_user_path, :class => "button positive"
