@@ -21,5 +21,8 @@
       %h3 Papers
       -for paper in @user.papers
         %span= paper.title
+
+  %h4 Add Paper
+  =link_to @user.papers.new, 
         
 = link_to "View all Professors", users_path, :class => "button positive"
