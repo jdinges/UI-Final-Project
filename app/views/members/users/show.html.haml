@@ -26,8 +26,8 @@
         %span= paper.title
 
 				
-	%h4 Add Paper
-	=link_to paper.new
+  %h4 Add Paper
+  =link_to "+Paper", members_papers_path(@user.papers.new)
         
 -if @user == current_user
   = link_to "Edit", edit_members_user_path, :class => "button positive"
