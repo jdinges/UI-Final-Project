@@ -1,5 +1,6 @@
 =javascript_include_tag "users/edit.js"
 = form_for [:members, @user] do |f|
+  = f.error_messages
   %fieldset
     %legend Account Details
     %p
@@ -10,7 +11,7 @@
       = f.label :email, "Email Address"
       %br
       = f.text_field :email
-    %p
+    -#%p
       = f.label :style_name, "Pick the style you want for your page"
       %br
       = f.text_field :style_name
@@ -53,6 +54,13 @@
         -for course in @user.courses
           %li(class="sortable" id="course_#{course.id}")= course.title 
 
-  = f.error_messages
+  %h2 Choose a style for your page:
+  #style-switcher(class="clearfix")
+    -for style in @styles
+      %button(type='button' class="style-switcher")
+        %span= style.name
+        -#kludge to deliver actual stylesheet name to jquery
+        %span(class='hidden stylesheet-name')= style.stylesheet
+
   %p
     = f.submit (@user.new_record? ? "Sign up" : "Update")

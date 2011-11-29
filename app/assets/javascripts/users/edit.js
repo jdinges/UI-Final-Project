@@ -1,21 +1,17 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery.jeditable.mini.js
-//
+
 $(function() {
-	$.extend($.ui.sortable.prototype.options, {
-		scroll: false
-	});
+	//draggables scroll the screen when dragged offscreen
+	//which is an annoying default
+	$.extend($.ui.sortable.prototype.options, { scroll: false });
 
 	$('#layout').sortable({
 		handle: "h3",
 		axis: "y",
 	});
-	//$('ul.sortable').sortable({
-		//items: "li.sortable",
-		//axis: "y",
-		//containment: 'parent'
-	//});
+
 	$('.editable').editable('.', {
 		type: "textarea",
 		rows: 5,
@@ -28,5 +24,23 @@ $(function() {
 		submitdata: {
 			inline: "true"
 		}
+	});
+	$('button.style-switcher').each(function () {
+		$(this).click(function (e) {
+			var style = $(this).children('.stylesheet-name').text();
+			//make ajax request to change user stylesheet
+			//and on success, switch the current live stylesheet to match
+			$.ajax({
+				url: '.',
+				type: "PUT",
+				data: {
+					inline: "true",
+					"user[style_name]": style
+				},
+				success: function () {
+					$('link[rel="stylesheet"]:first').attr("href","/assets/"+style);
+				}
+			});
+		});
 	});
 });
