@@ -17,8 +17,10 @@ class Members::PapersController < ApplicationController
     @paper = Paper.new(params[:paper])
     @paper.user = current_user
     if @paper.save
-      #redirect_to edit_members_user_path(@paper.user), :notice => "Successfully created paper."
-	  render :json => @paper
+      respond_to do |format|
+        format.html { redirect_to edit_members_user_path(@paper.user), :notice => "Successfully created paper." }
+	      format.json { render :json => @paper }
+	    end
     else
       render :action => 'new'
     end
