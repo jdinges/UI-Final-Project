@@ -17,11 +17,9 @@ class Members::PapersController < ApplicationController
     @paper = Paper.new(params[:paper])
     @paper.user = current_user
     if @paper.save
-      respond_to do |format|
-        format.html { redirect_to edit_members_user_path(@paper.user), :notice => "Successfully created paper." }
-	      format.js { render :json => @paper }
-	    end
-    else
+      #format.html { redirect_to edit_members_user_path(@paper.user), :notice => "Successfully created paper." }
+	    render :json => @paper
+	  else
       render :action => 'new'
     end
   end
@@ -31,8 +29,8 @@ class Members::PapersController < ApplicationController
 
   def update
     if @paper.update_attributes(params[:paper])
-      #redirect_to edit_members_user_path(@paper.user), :notice  => "Successfully updated paper."
-	  render :text => @paper.title
+      #redirect_to edit_members_user_path(@paper.user), :notice  => "Successfully updated paper." }
+	    render :text => @paper.title
     else
       render :action => 'edit'
     end
