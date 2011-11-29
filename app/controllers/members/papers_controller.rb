@@ -19,7 +19,7 @@ class Members::PapersController < ApplicationController
     if @paper.save
       respond_to do |format|
         format.html { redirect_to edit_members_user_path(@paper.user), :notice => "Successfully created paper." }
-	      format.json { render :json => @paper }
+	      format.js { render :json => @paper }
 	    end
     else
       render :action => 'new'
