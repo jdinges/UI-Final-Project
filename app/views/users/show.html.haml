@@ -8,30 +8,39 @@
 .clear
 
 #prof-info
-  -unless @user.bio.nil?
-    .content-section
-      %h3 Biography
+  .content-section
+    %h3 Biography
+    -if current_user == @user
+      #add-element
+        =link_to "Edit Biography", edit_members_user_path(current_user)
+      .clear
+    .clear
+    -unless @user.bio.nil?
       %span= @user.bio
     
-  -unless @user.courses.count == 0
-    .content-section
-      %h3 Courses
-      -for course in @user.courses
-        =link_to "#{course.title}", course.link
+  .content-section
+    %h3 Courses
+    -if current_user == @user
+      #add-element
+        =link_to "+Add Course", new_members_course_path(current_user)
         %br
+      .clear
+    .clear
+    -unless @user.courses.count == 0
+      -for course in @user.courses
+        %p=link_to "#{course.title}", course.link
 
-  -if current_user == @user
-    %h4 Add Course
-    =link_to "+Course", new_members_course_path(current_user)
-      
-  -unless @user.papers.count == 0
-    .content-section
-      %h3 Papers
+  .content-section
+    %h3 Papers
+    -if current_user == @user
+      #add-element
+        =link_to "+Add Paper", new_members_paper_path(current_user)
+        %br
+      .clear
+    .clear
+    -unless @user.papers.count == 0
       -for paper in @user.papers
         %p= paper.title
 
-  -if current_user == @user
-    %h4 Add Paper
-    =link_to "+Paper", new_members_paper_path(current_user)
         
 = link_to "View all Professors", users_path, :class => "button positive"
