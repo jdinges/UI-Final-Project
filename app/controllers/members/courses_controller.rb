@@ -17,7 +17,7 @@ class Members::CoursesController < ApplicationController
     @course = Course.new(params[:course])
     @course.user = current_user
     if @course.save
-      redirect_to members_course_path(@course), :notice => "Successfully created course."
+      redirect_to members_user_path(current_user), :notice => "Successfully created course."
     else
       render :action => 'new'
     end
@@ -28,7 +28,7 @@ class Members::CoursesController < ApplicationController
 
   def update
     if @course.update_attributes(params[:course])
-      redirect_to members_course_path(@course), :notice => "Successfully updated course."
+      redirect_to members_user_path(current_user), :notice => "Successfully updated course."
     else
       render :action => 'edit'
     end
@@ -36,7 +36,7 @@ class Members::CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to members_courses, :notice => "Successfully destroyed course."
+    redirect_to members_user_path(current_user), :notice => "Successfully destroyed course."
   end
   
   private
