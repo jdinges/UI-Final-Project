@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123193343) do
+ActiveRecord::Schema.define(:version => 20111128224210) do
 
   create_table "courses", :force => true do |t|
     t.integer  "user_id"
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(:version => 20111123193343) do
     t.datetime "updated_at"
   end
 
+  create_table "styles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "email"
@@ -36,10 +42,10 @@ ActiveRecord::Schema.define(:version => 20111123193343) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",              :default => "John Doe",        :null => false
+    t.string   "name",              :default => "John Doe",               :null => false
     t.string   "title"
     t.string   "bio"
-    t.string   "style_name",        :default => "application.css", :null => false
+    t.string   "style_name",        :default => "application_colors.css", :null => false
   end
 
 end

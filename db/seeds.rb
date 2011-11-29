@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+
+Styles.create(:name => 'application_colors.css')
+Styles.create(:name => 'noir.css')
+Styles.create(:name => 'black_and_white.css')

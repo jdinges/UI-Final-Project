@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to root_url, :notice => "Thank you for signing up! You are now logged in."
+      redirect_to members_root_url, :notice => "Thank you for signing up! You are now logged in."
     else
       render :action => 'new'
     end

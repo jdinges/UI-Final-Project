@@ -23,16 +23,17 @@
       %br
       = f.password_field :password_confirmation
   
-  %p
-    = f.label :name
-    %br
-    = f.text_field :name
-  %p
-    = f.label :title
-    %br
-    = f.text_field :title
+    %p
+      = f.label :name
+      %br
+      = f.text_field :name
+    %p
+      = f.label :title
+      %br
+      = f.text_field :title
 
   #layout
+    %h2 Rearrange your sections
     .content-section
       %h3 Bio
       %p(id="bio" class="editable")= @user.bio
