@@ -34,7 +34,7 @@
       = f.text_field :title
 
   #layout
-    %h2 Rearrange your sections
+    %h2 Edit and rearrange your sections
     .content-section
       %h3 Bio
       .clear
@@ -44,10 +44,13 @@
     .content-section
       %h3 Papers
       .clear
+
+      %p(class='clearfix')
+        %button(id='new-paper' type='button') New Paper
       %ul(id="papers" class="sortable")
-        %li= link_to("New Paper", new_members_paper_path(current_user))
+        -#%li= link_to("New Paper", new_members_paper_path(current_user))
         -for paper in @user.papers
-          %li(class="sortable" id="paper_#{paper.id}")= paper.title 
+          %li(class="sortable paper" id="paper_#{paper.id}")= paper.title 
     
     .content-section
       %h3 Courses
@@ -57,7 +60,7 @@
         -for course in @user.courses
           %li(class="sortable" id="course_#{course.id}")= course.title 
 
-  %h2 Choose a style for your page:
+  %h2 Choose a style for your page
   #style-switcher(class="clearfix")
     -for style in @styles
       %button(type='button' class="style-switcher")
