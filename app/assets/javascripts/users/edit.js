@@ -52,7 +52,7 @@ $(function() {
 				method: 'PUT',
 				name: "paper[title]"
 			});
-			el.hide().appendTo('#papers').fadeIn("slow");
+			el.hide().appendTo('#papers').effect("highlight", {}, 3000);
 		});
 	});
 	
