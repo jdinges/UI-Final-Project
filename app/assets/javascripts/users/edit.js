@@ -1,21 +1,17 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery.jeditable.mini.js
-//
+
 $(function() {
-	$.extend($.ui.sortable.prototype.options, {
-		scroll: false
-	});
+	//draggables scroll the screen when dragged offscreen
+	//which is an annoying default
+	$.extend($.ui.sortable.prototype.options, { scroll: false });
 
 	$('#layout').sortable({
 		handle: "h3",
 		axis: "y",
 	});
-	//$('ul.sortable').sortable({
-		//items: "li.sortable",
-		//axis: "y",
-		//containment: 'parent'
-	//});
+
 	$('.editable').editable('.', {
 		type: "textarea",
 		rows: 5,
@@ -29,5 +25,9 @@ $(function() {
 			inline: "true"
 		}
 	});
-	$('.style-switcher').each(:	
+	$('button.style-switcher').each(function () {
+		$(this).click(function (e) {
+			$('link[rel="stylesheet"]:first').attr("href","/assets/"+$(this).children('.stylesheet-name').text());
+		});
+	});
 });
