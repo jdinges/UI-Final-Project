@@ -14,6 +14,12 @@ a
   height: 0
   overflow: hidden
 
+.clearfix
+  +clearfix
+
+.hidden
+  display: none
+
 #header
   h1
     a
@@ -34,6 +40,7 @@ a
       display: inline
 
 #container
+  +clearfix
   width: 75%
   margin: 0 auto
   padding: 20px 40px
@@ -45,6 +52,8 @@ a
     a
       display: block
       padding: .5em
+  #edit-button
+    float:right
       
 #style-switcher
   margin: 1em
@@ -73,6 +82,12 @@ a
       color: black
 
 .content-section
+  +clearfix
   h3
     font-size: 12pt
-    margin-bottom: .5em
+    margin-bottom: .75em
+    float: left
+  #add-element
+    float: right
+  #content
+    float: left

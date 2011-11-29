@@ -1,21 +1,17 @@
 //= require jquery
 //= require jquery-ui
-//= require jquery.jeditable.mini.js
-//
+//= require jquery.jeditable.js
+
 $(function() {
-	$.extend($.ui.sortable.prototype.options, {
-		scroll: false
-	});
+	//draggables scroll the screen when dragged offscreen
+	//which is an annoying default
+	$.extend($.ui.sortable.prototype.options, { scroll: false });
 
 	$('#layout').sortable({
 		handle: "h3",
 		axis: "y",
 	});
-	//$('ul.sortable').sortable({
-		//items: "li.sortable",
-		//axis: "y",
-		//containment: 'parent'
-	//});
+
 	$('.editable').editable('.', {
 		type: "textarea",
 		rows: 5,
@@ -29,5 +25,54 @@ $(function() {
 			inline: "true"
 		}
 	});
-	$('.style-switcher').each(:	
+	
+	$('.paper').each(function () {
+		var id =  $(this).attr('id').split('_')[1] ;
+		$(this).editable('/members/papers/'+id+"", {
+			tooltip: "click to edit",
+			cancel: "Cancel",
+			submit: "Save",
+			method: 'PUT',
+			name: "paper[title]"
+		});
+
+	});
+
+	$('#new-paper').click(function () {
+		$.post('/members/papers/', function(data) {
+			var el = $('<li/>', {
+				text: data.title,
+				"class": "sortable paper",
+				id: "paper_"+data.id
+			});
+			$(el).editable('/members/papers/'+data.id+"", {
+				tooltip: "click to edit",
+				cancel: "Cancel",
+				submit: "Save",
+				method: 'PUT',
+				name: "paper[title]"
+			});
+			el.hide().appendTo('#papers').fadeIn("slow");
+		});
+	});
+	
+
+	$('button.style-switcher').each(function () {
+		$(this).click(function (e) {
+			var style = $(this).children('.stylesheet-name').text();
+			//make ajax request to change user stylesheet
+			//and on success, switch the current live stylesheet to match
+			$.ajax({
+				url: '.',
+				type: "PUT",
+				data: {
+					inline: "true",
+					"user[style_name]": style
+				},
+				success: function () {
+					$('link[rel="stylesheet"]:first').attr("href","/assets/"+style);
+				}
+			});
+		});
+	});
 });

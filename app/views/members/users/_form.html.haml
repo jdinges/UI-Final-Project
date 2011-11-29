@@ -1,10 +1,6 @@
 =javascript_include_tag "users/edit.js"
 = form_for [:members, @user] do |f|
-  #style-switcher
-    %h3 Choose a style for your page:
-    -for style in @styles
-      =link_to style.name, "#", :id => style.name, :class => "style-switcher", :remote => true
-      
+  = f.error_messages
   %fieldset
     %legend Account Details
     %p
@@ -15,7 +11,7 @@
       = f.label :email, "Email Address"
       %br
       = f.text_field :email
-    %p
+    -#%p
       = f.label :style_name, "Pick the style you want for your page"
       %br
       = f.text_field :style_name, :class => "style-field"
@@ -38,26 +34,39 @@
       = f.text_field :title
 
   #layout
-    %h2 Rearrange your sections
+    %h2 Edit and rearrange your sections
     .content-section
       %h3 Bio
+      .clear
       %p(id="bio" class="editable")= @user.bio
       -#= f.text_area :bio
 
     .content-section
       %h3 Papers
+      .clear
+
+      %p(class='clearfix')
+        %button(id='new-paper' type='button') New Paper
       %ul(id="papers" class="sortable")
-        %li= link_to("New Paper", new_members_paper_path(current_user))
+        -#%li= link_to("New Paper", new_members_paper_path(current_user))
         -for paper in @user.papers
-          %li(class="sortable" id="paper_#{paper.id}")= paper.title 
+          %li(class="sortable paper" id="paper_#{paper.id}")= paper.title 
     
     .content-section
       %h3 Courses
+      .clear
       %ul(id="courses" class="sortable")
         %li= link_to("New Course", new_members_course_path(current_user))
         -for course in @user.courses
           %li(class="sortable" id="course_#{course.id}")= course.title 
 
-  = f.error_messages
+  %h2 Choose a style for your page
+  #style-switcher(class="clearfix")
+    -for style in @styles
+      %button(type='button' class="style-switcher")
+        %span= style.name
+        -#kludge to deliver actual stylesheet name to jquery
+        %span(class='hidden stylesheet-name')= style.stylesheet
+
   %p
     = f.submit (@user.new_record? ? "Sign up" : "Update")

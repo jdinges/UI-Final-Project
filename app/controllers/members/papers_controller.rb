@@ -17,7 +17,8 @@ class Members::PapersController < ApplicationController
     @paper = Paper.new(params[:paper])
     @paper.user = current_user
     if @paper.save
-      redirect_to edit_members_user_path(@paper.user), :notice => "Successfully created paper."
+      #redirect_to edit_members_user_path(@paper.user), :notice => "Successfully created paper."
+	  render :json => @paper
     else
       render :action => 'new'
     end
@@ -28,7 +29,8 @@ class Members::PapersController < ApplicationController
 
   def update
     if @paper.update_attributes(params[:paper])
-      redirect_to edit_members_user_path(@paper.user), :notice  => "Successfully updated paper."
+      #redirect_to edit_members_user_path(@paper.user), :notice  => "Successfully updated paper."
+	  render :text => @paper.title
     else
       render :action => 'edit'
     end
@@ -36,7 +38,8 @@ class Members::PapersController < ApplicationController
 
   def destroy
     @paper.destroy
-    redirect_to edit_members_user_path(@paper.user), :notice => "Successfully destroyed paper."
+    #redirect_to edit_members_user_path(@paper.user), :notice => "Successfully destroyed paper."
+	render :text => 'destroyed'
   end
   
   private
