@@ -27,7 +27,20 @@ $(function() {
 	});
 	$('button.style-switcher').each(function () {
 		$(this).click(function (e) {
-			$('link[rel="stylesheet"]:first').attr("href","/assets/"+$(this).children('.stylesheet-name').text());
+			var style = $(this).children('.stylesheet-name').text();
+			//make ajax request to change user stylesheet
+			//and on success, switch the current live stylesheet to match
+			$.ajax({
+				url: '.',
+				type: "PUT",
+				data: {
+					inline: "true",
+					"user[style_name]": style
+				},
+				success: function () {
+					$('link[rel="stylesheet"]:first').attr("href","/assets/"+style);
+				}
+			});
 		});
 	});
 });
