@@ -1,0 +1,15 @@
+one:
+  university: MyString
+  degree: MyString
+  year: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+
+two:
+  university: MyString
+  degree: MyString
+  year: MyString
+  city: MyString
+  state: MyString
+  country: MyString

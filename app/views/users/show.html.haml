@@ -9,7 +9,7 @@
 
 #prof-info
   .content-section
-    %h3 Biography
+    %h3 About @user.name
     -if current_user == @user
       #add-element
         =link_to "Edit Biography", edit_members_user_path(current_user)
@@ -19,7 +19,7 @@
       %span= @user.bio
     
   .content-section
-    %h3 Courses
+    %h3 Current Classes
     -if current_user == @user
       #add-element
         =link_to "+Add Course", new_members_course_path(current_user)
@@ -31,7 +31,7 @@
         %p=link_to "#{course.title}", course.link
 
   .content-section
-    %h3 Papers
+    %h3 Publications
     -if current_user == @user
       #add-element
         =link_to "+Add Paper", new_members_paper_path(current_user)

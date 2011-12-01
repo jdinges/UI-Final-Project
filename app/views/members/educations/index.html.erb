@@ -1,0 +1,27 @@
+<% title "Educations" %>
+
+<table>
+  <tr>
+    <th>University</th>
+    <th>Degree</th>
+    <th>Year</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+  </tr>
+  <% for education in @educations %>
+    <tr>
+      <td><%= education.university %></td>
+      <td><%= education.degree %></td>
+      <td><%= education.year %></td>
+      <td><%= education.city %></td>
+      <td><%= education.state %></td>
+      <td><%= education.country %></td>
+      <td><%= link_to "Show", education %></td>
+      <td><%= link_to "Edit", edit_education_path(education) %></td>
+      <td><%= link_to "Destroy", education, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Education", new_education_path %></p>
