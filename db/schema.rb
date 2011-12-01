@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,19 +10,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111129034532) do
+ActiveRecord::Schema.define(:version => 20111201074227) do
 
   create_table "courses", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title",      :default => "My New Course"
-    t.string   "link",       :default => "http://my.course.url"
+    t.string   "title",         :default => "My New Course"
+    t.string   "link",          :default => "http://my.course.url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "course_number"
+  end
+
+  create_table "educations", :force => true do |t|
+    t.string   "university"
+    t.string   "degree"
+    t.string   "year"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "papers", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title",      :default => "My New Paper", :null => false
+    t.string   "title",          :default => "My New Paper", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "link"
+    t.string   "authors"
+    t.string   "publisher"
+    t.string   "date_published"
+    t.integer  "page_count"
+  end
+
+  create_table "researches", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,10 +67,13 @@ ActiveRecord::Schema.define(:version => 20111129034532) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",              :default => "John Doe",        :null => false
+    t.string   "name",              :default => "John Doe",               :null => false
     t.string   "title"
     t.string   "bio"
-    t.string   "style_name",        :default => "application.css", :null => false
+    t.string   "style_name",        :default => "application_colors.css", :null => false
+    t.string   "office"
+    t.string   "department"
+    t.string   "phone_number"
   end
 
 end

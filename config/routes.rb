@@ -1,4 +1,8 @@
 UIFinalProject::Application.routes.draw do  
+  resources :researches
+
+  resources :educations
+
   root :to => "users#index"
   
   namespace :members do
