@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create, :index, :show]
+  before_filter :login_required, :except => [:new, :create, :index, :show, :splash]
   before_filter :find_user, :only => [:edit, :update]
 
   def new
     @user = User.new
+  end
+  
+  def splash
   end
 
   def create
@@ -15,10 +18,8 @@ class UsersController < ApplicationController
     end
   end
   
-  USERS_PER_PAGE = 20
-  
   def index
-    @users = User.paginate(:page => params[:page], :per_page => USERS_PER_PAGE)
+    @users = User.where(:published => true).paginate(:page => params[:page])
     respond_to do |format|
       format.html
       format.xml { render :xml => @users }

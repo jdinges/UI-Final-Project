@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :educations
   has_many :researches
   
+  self.per_page = 10
+  
   def full_name
     "#{self.title} #{self.name}"
   end

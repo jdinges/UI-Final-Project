@@ -3,7 +3,7 @@ UIFinalProject::Application.routes.draw do
 
   resources :educations
 
-  root :to => "users#index"
+  root :to => "users#splash"
   
   namespace :members do
     root :to => "users#index"
