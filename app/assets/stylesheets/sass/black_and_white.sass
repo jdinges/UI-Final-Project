@@ -17,7 +17,8 @@ $default-text-shadow-color: $primary_color
 $default-text-shadow-blur: 5px
 
 body
-  background-color: $primary_color
+  background: url("bw.jpg") no-repeat !important
+  background-size: 100%
   color: $text_color
   
 a
@@ -39,6 +40,8 @@ a
       +hover-link
       
 #container
+  background: white
+  +opacity(.9)
   li
     a
       +link-colors(#333)
