@@ -48,5 +48,10 @@
   = link_to "Edit", edit_members_user_path, :class => "button positive"
 .clear
 %br
-%h3 Curious what other professors have done?
-= link_to "View other Professors", members_users_path, :class => "button positive"
+
+- if @user == current_user
+  %h3 Curious what other professors have done?
+  = link_to "View other Professors", members_users_path, :class => "button positive"
+- else
+  %h3 Enough inspiration?
+  = link_to "Back to your persona", members_user_path(current_user), :class => "button positive"

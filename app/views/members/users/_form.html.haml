@@ -31,6 +31,33 @@
       = f.label :title
       .hint Dr., Mrs., President, etc.
       = f.text_field :title
+      
+  %fieldset
+    %legend Choose a style for your page
+    #style-switcher.clearfix
+      -for style in @styles
+        %button.style-switcher(type='button')
+          %span= style.name
+          -#kludge to deliver actual stylesheet name to jquery
+          %span(class='hidden stylesheet-name')= style.stylesheet
+        
+  %fieldset
+    - if @user.published?
+      %legend Need to unpublish your persona?
+      .hint Marking your persona as a draft will make it no longer publicly viewable.
+      %br
+      = f.radio_button :published, '0'
+      = label :published_0, "Draft"
+      = f.radio_button :published, '1', :checked => true
+      = label :published_1, "Published"
+    - else
+      %legend Ready to publish your persona for public viewing?
+      .hint Once you've entered all the information you want, publish it so the world can see you!
+      %br
+      = f.radio_button :published, '0', :checked => true
+      = label :published_0, "Draft"
+      = f.radio_button :published, '1'
+      = label :published_1, "Publish"
 
   #layout
     %h2 Edit and rearrange your sections
@@ -64,31 +91,5 @@
         -for course in @user.courses
           %li.sortable(id="course_#{course.id}")= course.title 
 
-  %h2 Choose a style for your page
-  #style-switcher.clearfix
-    -for style in @styles
-      %button.style-switcher(type='button')
-        %span= style.name
-        -#kludge to deliver actual stylesheet name to jquery
-        %span(class='hidden stylesheet-name')= style.stylesheet
-        
-  %fieldset
-    - if @user.published?
-      %legend Need to unpublish your persona?
-      .hint Marking your persona as a draft will make it no longer publicly viewable.
-      %br
-      = f.radio_button :published, '0'
-      = label :published_0, "Draft"
-      = f.radio_button :published, '1', :checked => true
-      = label :published_1, "Published"
-    - else
-      %legend Ready to publish your persona for public viewing?
-      .hint Once you've entered all the information you want, publish it so the world can see you!
-      %br
-      = f.radio_button :published, '0', :checked => true
-      = label :published_0, "Draft"
-      = f.radio_button :published, '1'
-      = label :published_1, "Publish"
-
   %p
-    = f.submit (@user.new_record? ? "Sign up" : "Update")
+    = f.submit (@user.published? ? "View Persona" : "Save")

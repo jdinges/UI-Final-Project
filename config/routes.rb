@@ -1,8 +1,4 @@
 UIFinalProject::Application.routes.draw do  
-  resources :researches
-
-  resources :educations
-
   root :to => "users#splash"
   
   namespace :members do
@@ -10,21 +6,19 @@ UIFinalProject::Application.routes.draw do
   end
   
   resources :courses
-
   resources :links
-
   resources :accomplishments
-
   resources :papers
-
-  resources :professors  
   resources :roles
   resources :users
   resources :user_sessions
+  resources :researches
+  resources :educations
   
   match 'login' => 'user_sessions#new', :as => :login
   match 'signup' => 'users#new', :as => :signup
   match 'logout' => 'user_sessions#destroy', :as => :logout
+  match 'learn' => 'users#learn', :as => :learn
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
