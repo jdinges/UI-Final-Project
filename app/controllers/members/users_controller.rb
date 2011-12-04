@@ -26,7 +26,7 @@ class Members::UsersController < ApplicationController
   end
   
   def show
-    @user = User.find_by_username(params[:id])
+    @user = (User.find_by_username(params[:id]) or current_user)
     respond_to do |format|
       format.html 
       format.xml { render :xml => @user }
