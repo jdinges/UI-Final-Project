@@ -16,23 +16,27 @@ $default-text-shadow-color: $primary_color
 $default-text-shadow-blur: 5px
 
 body
-  background-color: $primary_color
+  background: url("noir.jpg") #000 no-repeat !important
+  background-size: 100%
   
 a
   // normal, hover
   +link-colors($link_color, adjust-lightness($link_color, 20%))
 
+h3
+  color: $link_color
+
 .button
   +anchor-button
   
 #header
-  color: $primary_color
+  color: $link_color
   background-color: $gradient_begin
   @include filter-gradient($gradient_begin, $gradient_end, vertical)
   @include background-image(linear-gradient(top, $gradient_begin 0%, $gradient_end 100%))
   h1 
     a
-      color: $primary_color
+      color: $link_color
       +text-shadow
   #userlinks
     a
@@ -41,6 +45,7 @@ a
 #container
   background: adjust-lightness($primary_color, 20%)
   border: 1px solid adjust-lightness($primary_color, 50%)
+  +opacity(.9)
   h2
     color: $link_color
   li
@@ -76,3 +81,9 @@ form
   +notice
   h3
     +header-text
+    
+#footer
+  background: #555
+  color: white
+  border: 1px solid #ddd
+  +opacity(.6)

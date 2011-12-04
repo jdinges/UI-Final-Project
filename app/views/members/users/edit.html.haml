@@ -2,6 +2,16 @@
 
 .clear
 
+- if URI(request.referer).path == signup_path
+  #info
+    %h3 Welcome to your new page!
+    Let's get started.
+    %ol
+      %li Add in some information about yourself here 
+      %li Rearrange your content
+      %li Choose a style  
+    When you're ready for prime time change your persona from "draft" to "publish".  Make sure to click Update!
+
 = render 'form'
 
 .clear

@@ -3,7 +3,6 @@
 -content_for :style_name do
   = "#{@user.style_name}"
 
-= link_to "View all Professors", members_users_path, :class => "button positive"
 -if @user == current_user
   #edit-button
     =link_to "Edit", edit_members_user_path, :class => "button positive"
@@ -47,4 +46,12 @@
         
 -if @user == current_user
   = link_to "Edit", edit_members_user_path, :class => "button positive"
-= link_to "View all Professors", members_users_path, :class => "button positive"
+.clear
+%br
+
+- if @user == current_user
+  %h3 Curious what other professors have done?
+  = link_to "View other Professors", members_users_path, :class => "button positive"
+- else
+  %h3 Enough inspiration?
+  = link_to "Back to your persona", members_user_path(current_user), :class => "button positive"

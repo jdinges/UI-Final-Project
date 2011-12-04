@@ -25,47 +25,71 @@
       = f.password_field :password_confirmation
     %p
       = f.label :name
-      %br
+      .hint Your (real) full name
       = f.text_field :name
     %p
       = f.label :title
-      %br
+      .hint Dr., Mrs., President, etc.
       = f.text_field :title
+      
+  %fieldset
+    %legend Choose a style for your page
+    #style-switcher.clearfix
+      -for style in @styles
+        %button.style-switcher(type='button')
+          %span= style.name
+          -#kludge to deliver actual stylesheet name to jquery
+          %span(class='hidden stylesheet-name')= style.stylesheet
+        
+  %fieldset
+    - if @user.published?
+      %legend Need to unpublish your persona?
+      .hint Marking your persona as a draft will make it no longer publicly viewable.
+      %br
+      = f.radio_button :published, '0'
+      = label :published_0, "Draft"
+      = f.radio_button :published, '1', :checked => true
+      = label :published_1, "Published"
+    - else
+      %legend Ready to publish your persona for public viewing?
+      .hint Once you've entered all the information you want, publish it so the world can see you!
+      %br
+      = f.radio_button :published, '0', :checked => true
+      = label :published_0, "Draft"
+      = f.radio_button :published, '1'
+      = label :published_1, "Publish"
 
   #layout
     %h2 Edit and rearrange your sections
     .content-section
       %h3 Bio
       .clear
-      %p(id="bio" class="editable")= @user.bio
+      
+      #bio.editable= @user.bio
       -#= f.text_area :bio
 
     .content-section
       %h3 Papers
       .clear
 
-      %p(class='clearfix')
-        %button(id='new-paper' type='button') New Paper
-      %ul(id="papers" class="sortable")
+      %button#new-paper(type='button') New Paper
+      
+      .clear
+      
+      .hint Click on the title of the paper to edit it.
+      %br
+      %ul#papers.sortable
         -#%li= link_to("New Paper", new_members_paper_path(current_user))
         -for paper in @user.papers
-          %li(class="sortable paper" id="paper_#{paper.id}")= paper.title 
+          %li.paper(id="paper_#{paper.id}")= paper.title 
     
     .content-section
       %h3 Courses
       .clear
-      %ul(id="courses" class="sortable")
-        %li= link_to("New Course", new_members_course_path(current_user))
+      %ul#courses.sortable
+        %li= link_to "New Course", new_members_course_path(current_user)
         -for course in @user.courses
-          %li(class="sortable" id="course_#{course.id}")= course.title 
-
-  %h2 Choose a style for your page
-  #style-switcher(class="clearfix")
-    -for style in @styles
-      %button(type='button' class="style-switcher")
-        %span= style.name
-        -#kludge to deliver actual stylesheet name to jquery
-        %span(class='hidden stylesheet-name')= style.stylesheet
+          %li.sortable(id="course_#{course.id}")= course.title 
 
   %p
-    = f.submit (@user.new_record? ? "Sign up" : "Update")
+    = f.submit (@user.published? ? "View Persona" : "Save")

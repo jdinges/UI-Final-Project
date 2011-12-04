@@ -16,10 +16,8 @@ class Members::UsersController < ApplicationController
     end
   end
   
-  USERS_PER_PAGE = 20
-  
   def index
-    @users = User.paginate(:page => params[:page], :per_page => USERS_PER_PAGE)
+    @users = User.where(:published => true).paginate(:page => params[:page])
     respond_to do |format|
       format.html
       format.xml { render :xml => @users }
@@ -28,9 +26,9 @@ class Members::UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
     respond_to do |format|
-      format.html
+      format.html 
       format.xml { render :xml => @user }
       format.json { render :json => @user }
     end

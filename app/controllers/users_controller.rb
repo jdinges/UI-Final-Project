@@ -1,24 +1,28 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create, :index, :show]
+  before_filter :login_required, :except => [:new, :create, :index, :show, :splash, :learn]
   before_filter :find_user, :only => [:edit, :update]
 
   def new
     @user = User.new
   end
+  
+  def splash
+  end
+  
+  def learn
+  end
 
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to members_root_url, :notice => "Thank you for signing up! You are now logged in."
+      redirect_to edit_members_user_path(@user), :notice => "Thank you for signing up! Now it's time to create your persona."
     else
       render :action => 'new'
     end
   end
   
-  USERS_PER_PAGE = 20
-  
   def index
-    @users = User.paginate(:page => params[:page], :per_page => USERS_PER_PAGE)
+    @users = User.where(:published => true).paginate(:page => params[:page])
     respond_to do |format|
       format.html
       format.xml { render :xml => @users }
