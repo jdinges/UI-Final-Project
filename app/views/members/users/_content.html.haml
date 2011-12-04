@@ -3,12 +3,14 @@
 
 #prof-info
   .content-section
-    %h3 Biography
-    -if current_user == @user
-      #add-element
-        =link_to "Edit Biography", edit_members_user_path(current_user)
-      .clear
-      #bio.editable= @user.bio
+    .clearfix
+      %h3 Biography
+      -if current_user == @user
+        %button.add-element#edit-biography Edit Biography
+        -#=link_to "Edit Biography", edit_members_user_path(current_user)
+          
+    .clear
+    %p#bio= editable_field @user, :bio, :update_url => members_user_path, :submitdata => { :ajax => true }, :type => 'textarea', :rows => 5, :submit => 'Update', :cancel => 'Cancel', :tooltip => 'Click to edit', :indicator => 'Saving...'
     
   .content-section
     %h3 Courses

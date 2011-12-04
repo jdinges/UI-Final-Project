@@ -1,9 +1,5 @@
 -title "#{@user.title} #{@user.name}"
 
-
--if @user == current_user
-  =javascript_include_tag "users/edit_from_show.js"
-
 = render "content"
 
 - if @user == current_user

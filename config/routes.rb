@@ -6,7 +6,7 @@ UIFinalProject::Application.routes.draw do
     resources :users
   end
   
-  # what is this for? doesn't seem to affect anythign
+  # what is this for? doesn't seem to affect anything
   #resources :roles
   resources :users do
     resources :courses

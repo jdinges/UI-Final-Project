@@ -61,7 +61,7 @@ Formtastic::FormBuilder.required_string = ""
 # This is configured on a type basis and if a type is not found it will
 # fall back to the default order as defined by #inline_order
 # Formtastic::FormBuilder.custom_inline_order[:checkbox] = [:errors, :hints, :input]
-# Formtastic::FormBuilder.custom_inline_order[:select] = [:hints, :input, :errors]
+Formtastic::FormBuilder.custom_inline_order[:radio] = [:errors, :hints, :input]
 
 # Specifies if labels/hints for input fields automatically be looked up using I18n.
 # Default value: true. Overridden for specific fields by setting value to true,
