@@ -12,14 +12,4 @@
     = f.input :style, :as => :radio
   = f.inputs @user.published? ? "Need to unpublish your persona?" : "Ready to publish your persona for public viewing?" do 
     = f.input :published, :as => :radio, :collection => {"Published" => true, "Draft" => false}, :hint => @user.published? ? "Marking your persona as a draft will make it no longer publicly viewable." : "Once you've entered all the information you want, publish it so the world can see you!"
- 
-  %fieldset
-    %legend Choose a style for your page
-    #style-switcher.clearfix
-      -for style in @styles
-        %button.style-switcher(type='button')
-          %span= style.name
-          -#kludge to deliver actual stylesheet name to jquery
-          %span(class='hidden stylesheet-name')= style.stylesheet
-        
   = f.buttons
