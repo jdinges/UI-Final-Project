@@ -42,7 +42,7 @@ class Members::CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to members_user_path(current_user), :notice => "Successfully destroyed course."
+    render :action => 'destroy'
   end
   
   private

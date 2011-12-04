@@ -8,14 +8,14 @@ UIFinalProject::Application.routes.draw do
   
   # what is this for? doesn't seem to affect anything
   #resources :roles
-  resources :users do
-    resources :courses
-    resources :links
-    resources :accomplishments
-    resources :papers
-    resources :researches
-    resources :educations
-  end
+  resources :users
+  resources :courses
+  resources :links
+  resources :accomplishments
+  resources :papers
+  resources :researches
+  resources :educations
+  
   resources :user_sessions
   
   match 'login' => 'user_sessions#new', :as => :login
