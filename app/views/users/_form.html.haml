@@ -3,26 +3,26 @@
   %p
     = f.label :username
     %br
-    = f.text_field :username
+    = f.text_field :username, :required => true
   %p
     = f.label :email, "Email Address"
     %br
-    = f.text_field :email
+    = f.email_field :email, :required => true
   %p
     = f.label :name
     .hint Your (real) full name
-    = f.text_field :name
+    = f.text_field :name, :required => true
   %p
     = f.label :title
     .hint Dr., Mrs., President, etc.
-    = f.text_field :title
+    = f.text_field :title, :required => true
   %p
     = f.label :password
     %br
-    = f.password_field :password
+    = f.password_field :password, :required => true
   %p
     = f.label :password_confirmation, "Confirm Password"
     %br
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, :required => true
   %p
     = f.submit (@user.new_record? ? "Sign up" : "Update")
