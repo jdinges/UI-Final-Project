@@ -5,15 +5,17 @@ UIFinalProject::Application.routes.draw do
     root :to => "users#edit"
   end
   
-  resources :courses
-  resources :links
-  resources :accomplishments
-  resources :papers
-  resources :roles
-  resources :users
+  # what is this for? doesn't seem to affect anythign
+  #resources :roles
+  resources :users do
+    resources :courses
+    resources :links
+    resources :accomplishments
+    resources :papers
+    resources :researches
+    resources :educations
+  end
   resources :user_sessions
-  resources :researches
-  resources :educations
   
   match 'login' => 'user_sessions#new', :as => :login
   match 'signup' => 'users#new', :as => :signup
