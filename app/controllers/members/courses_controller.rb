@@ -11,13 +11,19 @@ class Members::CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @course.user = current_user
+    @course.save
+    render :action => 'create'
   end
 
   def create
     @course = Course.new(params[:course])
     @course.user = current_user
     if @course.save
-      redirect_to members_user_path(current_user), :notice => "Successfully created course."
+      respond_to do |format|
+        format.html { redirect_to members_user_path(current_user), :notice => "Successfully created course." }
+        format.js 
+      end
     else
       render :action => 'new'
     end

@@ -1,5 +1,0 @@
-$(function () {
-$.ajaxSetup({
-  dataType: 'text'
-});
-});
