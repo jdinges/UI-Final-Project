@@ -38,8 +38,8 @@ class Members::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-	  
+    @user = User.find_by_username(params[:id])
+
 	  if params[:inline].eql? "true" 
 	    if @user.update_attributes(params[:user])
 		  render :text => @user.bio
@@ -64,6 +64,6 @@ class Members::UsersController < ApplicationController
     end
     
     def styles
-      @styles = Styles.all
+      @styles = Style.all
     end
 end

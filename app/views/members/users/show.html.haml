@@ -4,10 +4,9 @@
   = "#{@user.style_name}"
 
 -if @user == current_user
-  #edit-button
-    =link_to "Edit", edit_members_user_path, :class => "button positive"
-  .clear
-.clear
+  =javascript_include_tag "users/edit_from_show.js"
+
+#style= @user.style.name
 
 #prof-info
   .content-section
@@ -16,9 +15,7 @@
       #add-element
         =link_to "Edit Biography", edit_members_user_path(current_user)
       .clear
- 
-    -unless @user.bio.nil?
-      %span= @user.bio
+      #bio.editable= @user.bio
     
   .content-section
     %h3 Courses
@@ -43,11 +40,9 @@
         %p= paper.title
 
   
-        
--if @user == current_user
-  = link_to "Edit", edit_members_user_path, :class => "button positive"
-.clear
-%br
+- if @user == current_user
+  .clearfix
+    = link_to "Edit", edit_members_user_path, :class => "button positive"
 
 - if @user == current_user
   %h3 Curious what other professors have done?

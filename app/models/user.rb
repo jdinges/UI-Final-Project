@@ -6,7 +6,12 @@ class User < ActiveRecord::Base
   has_many :papers
   has_many :educations
   has_many :researches
-  
+ 
+  #it's really more of a has_one relationship
+  #but ActiveRecord's careful fluent language
+  #breaks down here
+  belongs_to :style
+
   self.per_page = 10
   
   def full_name

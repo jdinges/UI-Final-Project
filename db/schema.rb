@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204022641) do
+ActiveRecord::Schema.define(:version => 20111204053927) do
 
   create_table "courses", :force => true do |t|
     t.integer  "user_id"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20111204022641) do
     t.string   "department"
     t.string   "phone_number"
     t.boolean  "published",         :default => false,             :null => false
+    t.integer  "style_id",          :default => 1
   end
 
 end
