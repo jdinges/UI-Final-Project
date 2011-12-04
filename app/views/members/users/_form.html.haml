@@ -40,20 +40,14 @@
   %fieldset
     - if @user.published?
       %legend Need to unpublish your persona?
-      .hint Marking your persona as a draft will make it no longer publicly viewable.
-      %br
-      = f.radio_button :published, '0'
-      = label :published_0, "Draft"
-      = f.radio_button :published, '1', :checked => true
-      = label :published_1, "Published"
+      %p.hint Marking your persona as a draft will make it no longer publicly viewable.
     - else
       %legend Ready to publish your persona for public viewing?
-      .hint Once you've entered all the information you want, publish it so the world can see you!
-      %br
-      = f.radio_button :published, '0', :checked => true
-      = label :published_0, "Draft"
-      = f.radio_button :published, '1'
-      = label :published_1, "Publish"
+      %p.hint Once you've entered all the information you want, publish it so the world can see you!
+    = f.radio_button :published, '0'
+    = f.label :published_0, "Draft"
+    = f.radio_button :published, '1', :checked => true
+    = f.label :published_1, "Published"
 
   #layout
     %h2 Edit and rearrange your sections
