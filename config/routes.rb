@@ -2,7 +2,7 @@ UIFinalProject::Application.routes.draw do
   root :to => "users#splash"
   
   namespace :members do
-    root :to => "users#show"
+    root :to => "users#index"
     resources :users
   end
   
