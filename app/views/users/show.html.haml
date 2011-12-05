@@ -2,6 +2,26 @@
 
 .clear
 
-= render "members/users/content"
-        
+-content_for :style_name do
+  = "#{@user.style.stylesheet}"
+
+#prof-info
+  .content-section
+    %h3 Biography
+    .clear
+    %p#bio= @user.bio
+    
+  .content-section
+    %h3 Courses
+    .clear
+    %ul#courses
+      - for course in @user.courses
+        %li= link_to course.title, course.link
+  .content-section
+    %h3 Papers
+    .clear
+    %ul#papers
+      -for paper in @user.papers
+        %li= paper.title
+
 = link_to "View all Professors", users_path, :class => "button positive"

@@ -7,27 +7,25 @@
       %h3 Biography
       -if current_user == @user
         %button.add-element#edit-biography Edit Biography
-    .clear
-    %p#bio= editable_field @user, :bio, :update_url => members_user_path, :submitdata => { :ajax => true }, :type => 'textarea', :rows => 5, :submit => 'Update', :cancel => 'Cancel', :tooltip => 'Click to edit', :indicator => 'Saving...'
+        .clear
+        %p#bio= editable_field @user, :bio, :update_url => members_user_path, :submitdata => { :ajax => true }, :type => 'textarea', :rows => 5, :submit => 'Update', :cancel => 'Cancel', :tooltip => 'Click to edit', :indicator => 'Saving...'
+      -else
+        %p#bio= @user.bio
     
   .content-section
     %h3 Courses
     -if current_user == @user
       .add-element
         =button_to "+Add Course", new_members_course_path(current_user), :method => :get, :remote => true
-        %br
       .clear
-    -unless @user.courses.count == 0
-      #courses
-        - for course in @user.courses
-          = render course
+    %ul#courses
+      - for course in @user.courses
+        = render course
   .content-section
     %h3 Papers
     -if current_user == @user
       .add-element
         =link_to "+Add Paper", new_members_paper_path(current_user)
-        %br
       .clear
-    -unless @user.papers.count == 0
-      -for paper in @user.papers
-        %p= paper.title
+    -for paper in @user.papers
+      %p= paper.title

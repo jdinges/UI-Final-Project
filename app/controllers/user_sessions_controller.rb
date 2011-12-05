@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
       #is evaluating to '/user.<username>' instead of
       #'/user/username'
       #why.jpg
-      redirect_to "/users/#{current_user.username}", :notice => "Logged in successfully."
+      redirect_to "/members/users/#{current_user.username}", :notice => "Logged in successfully."
     else
       render :action => 'new'
     end
