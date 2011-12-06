@@ -25,7 +25,7 @@
     %h3 Papers and Publications
     -if current_user == @user
       .add-element
-        =link_to "+Add Paper", new_members_paper_path(current_user)
+        =button_to "+Add Paper", new_members_paper_path(current_user)
       .clear
     -for paper in @user.papers
       %p= paper.title
@@ -34,7 +34,16 @@
     %h3 Education
     -if current_user == @user
       .add-element
-        =link_to "+Add School", new_members_education_path(current_user)
+        =button_to "+Add School", new_members_education_path(current_user)
       .clear
     -for education in @user.educations
       %p= education.degree
+
+  .content-section
+    %h3 Research
+    -if current_user == @user
+      .add-element
+        =button_to "+Add Research", new_members_research_path(current_user)
+      .clear
+    -for research in @user.researches
+      %p= research.title

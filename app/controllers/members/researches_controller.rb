@@ -6,7 +6,7 @@ class Members::ResearchesController < ApplicationController
   end
 
   def show
-    @research = Research.find(params[:id])
+    #@research = Research.find(params[:id])
   end
 
   def new
@@ -15,8 +15,9 @@ class Members::ResearchesController < ApplicationController
 
   def create
     @research = Research.new(params[:research])
+    @research.user = current_user
     if @research.save
-      redirect_to @research, :notice => "Successfully created research."
+      redirect_to members_user_path(current_user), :notice => "Successfully created research."
     else
       render :action => 'new'
     end
@@ -40,4 +41,9 @@ class Members::ResearchesController < ApplicationController
     @research.destroy
     redirect_to researches_url, :notice => "Successfully destroyed research."
   end
+  
+  private
+    def find_research
+      @research = Research.find(params[:id])
+    end
 end
