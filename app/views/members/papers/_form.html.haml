@@ -5,4 +5,24 @@
     %br
     = f.text_field :title
   %p
+    = f.label :authors
+    %br
+    = f.text_field :authors
+  %p
+    = f.label :publisher
+    %br
+    = f.text_field :publisher
+  %p
+    = f.label :date_published
+    %br
+    = f.text_field :date_published
+  %p
+    = f.label :page_count
+    %br
+    = f.text_field :date_published
+  %p
+    = f.label :link
+    %br
+    = f.text_field :link, :value => "http://"
+  %p
     = f.submit

@@ -73,6 +73,8 @@ UIFinalProject::Application.routes.draw do
     resources :users
     resources :courses
     resources :papers
+    resources :educations
+    resources :researches
   end
 
   # You can have the root of your site routed with "root"
