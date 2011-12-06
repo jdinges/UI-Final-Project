@@ -1,72 +1,14 @@
-=javascript_include_tag "users/edit.js"
-= form_for [:members, @user] do |f|
+= semantic_form_for [:members, @user] do |f|
   = f.error_messages
-  %fieldset
-    %legend Account Details
-    %p
-      = f.label :username
-      %br
-      = f.text_field :username
-    %p
-      = f.label :email, "Email Address"
-      %br
-      = f.text_field :email
-    -#%p
-      = f.label :style_name, "Pick the style you want for your page"
-      %br
-      = f.text_field :style_name, :class => "style-field"
-    %p
-      = f.label :password
-      %br
-      = f.password_field :password
-    %p
-      = f.label :password_confirmation, "Confirm Password"
-      %br
-      = f.password_field :password_confirmation
-  
-    %p
-      = f.label :name
-      %br
-      = f.text_field :name
-    %p
-      = f.label :title
-      %br
-      = f.text_field :title
-
-  #layout
-    %h2 Edit and rearrange your sections
-    .content-section
-      %h3 Bio
-      .clear
-      %p(id="bio" class="editable")= @user.bio
-      -#= f.text_area :bio
-
-    .content-section
-      %h3 Papers
-      .clear
-
-      %p(class='clearfix')
-        %button(id='new-paper' type='button') New Paper
-      %ul(id="papers" class="sortable")
-        -#%li= link_to("New Paper", new_members_paper_path(current_user))
-        -for paper in @user.papers
-          %li(class="sortable paper" id="paper_#{paper.id}")= paper.title 
-    
-    .content-section
-      %h3 Courses
-      .clear
-      %ul(id="courses" class="sortable")
-        %li= link_to("New Course", new_members_course_path(current_user))
-        -for course in @user.courses
-          %li(class="sortable" id="course_#{course.id}")= course.title 
-
-  %h2 Choose a style for your page
-  #style-switcher(class="clearfix")
-    -for style in @styles
-      %button(type='button' class="style-switcher")
-        %span= style.name
-        -#kludge to deliver actual stylesheet name to jquery
-        %span(class='hidden stylesheet-name')= style.stylesheet
-
-  %p
-    = f.submit (@user.new_record? ? "Sign up" : "Update")
+  = f.inputs "Account Settings" do
+    = f.input :username, :required => false
+    = f.input :email, :required => false
+    = f.input :password, :required => false
+    = f.input :password_confirmation, :required => false
+    = f.input :name, :required => false
+    = f.input :title, :required => false
+  = f.inputs "Choose a style for your page" do
+    = f.input :style, :as => :radio
+  = f.inputs @user.published? ? "Need to unpublish your persona?" : "Ready to publish your persona for public viewing?" do 
+    = f.input :published, :as => :radio, :collection => {"Published" => true, "Draft" => false}, :hint => @user.published? ? "Marking your persona as a draft will make it no longer publicly viewable." : "Once you've entered all the information you want, publish it so the world can see you!"
+  = f.buttons

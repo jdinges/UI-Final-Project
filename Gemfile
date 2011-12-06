@@ -47,3 +47,8 @@ gem "mocha", :group => :test
 
 #do want haml
 gem "haml"
+
+#do want formtastic
+gem 'formtastic'
+
+gem 'jeditable-rails'

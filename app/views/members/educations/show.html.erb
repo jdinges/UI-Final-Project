@@ -1,0 +1,32 @@
+<% title "Education" %>
+
+<p>
+  <strong>University:</strong>
+  <%= @education.university %>
+</p>
+<p>
+  <strong>Degree:</strong>
+  <%= @education.degree %>
+</p>
+<p>
+  <strong>Year:</strong>
+  <%= @education.year %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @education.city %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%= @education.state %>
+</p>
+<p>
+  <strong>Country:</strong>
+  <%= @education.country %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_education_path(@education) %> |
+  <%= link_to "Destroy", @education, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", educations_path %>
+</p>

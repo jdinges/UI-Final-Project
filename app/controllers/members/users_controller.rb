@@ -10,16 +10,14 @@ class Members::UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to root_url, :notice => "Thank you for signing up! You are now logged in."
+      redirect_to members_user_path(@user), :notice => "Thank you for signing up! You are now logged in."
     else
       render :action => 'new'
     end
   end
   
-  USERS_PER_PAGE = 20
-  
   def index
-    @users = User.paginate(:page => params[:page], :per_page => USERS_PER_PAGE)
+    @users = User.where(:published => true).paginate(:page => params[:page])
     respond_to do |format|
       format.html
       format.xml { render :xml => @users }
@@ -28,9 +26,9 @@ class Members::UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(current_user)
+    @user = (User.find_by_username(params[:id]) or current_user)
     respond_to do |format|
-      format.html
+      format.html 
       format.xml { render :xml => @user }
       format.json { render :json => @user }
     end
@@ -40,23 +38,21 @@ class Members::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-	  
-	  if params[:inline].eql? "true" 
-	    if @user.update_attributes(params[:user])
-		  render :text => @user.bio
-	    end
-	  else
-	    respond_to do |format|
-	      if @user.update_attributes(params[:user])
-	        format.html { redirect_to members_user_path(@user), :notice => "Your profile has been updated." }
-	        format.js
-	      else
-	        format.html { render :action => 'edit' }
-	        format.js
-	      end
-	    end
-	  end
+    @user = User.find_by_username(params[:id])
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { 
+          if params[:ajax] 
+            render :text => @user.bio
+          else
+            redirect_to members_user_path(@user), :notice => "Your profile has been updated."
+          end
+        }
+      else
+        format.html { render :action => 'edit' }
+        format.js
+      end
+    end
   end
   
   private
@@ -66,6 +62,6 @@ class Members::UsersController < ApplicationController
     end
     
     def styles
-      @styles = Styles.all
+      @styles = Style.all
     end
 end

@@ -5,5 +5,18 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require_tree .
+
+$.ajaxSetup({
+  datatype: 'text'
+});
+
+
+//this needs to be moved
+$(function () {
+  $('#edit-biography').click(function () {
+    $(".editable[data-name='user[bio]']").trigger('click');
+  });
+});

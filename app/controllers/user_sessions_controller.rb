@@ -6,7 +6,11 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to members_root_url, :notice => "Logged in successfully."
+      #rails is being bitchy, and 'users_path(current_user)'
+      #is evaluating to '/user.<username>' instead of
+      #'/user/username'
+      #why.jpg
+      redirect_to "/members/users/#{current_user.username}", :notice => "Logged in successfully."
     else
       render :action => 'new'
     end

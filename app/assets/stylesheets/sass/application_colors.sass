@@ -1,7 +1,6 @@
 @import compass/utilities
 @import compass/css3
 @import compass/reset
-@import compass/css3
 @import compass/typography/links/hover-link
 @import "blueprint/form"
 @import "blueprint/typography"
@@ -16,7 +15,8 @@ $default-text-shadow-color: $primary_color
 $default-text-shadow-blur: 5px
 
 body
-  background-color: $primary_color
+  background: url("splash.jpg") no-repeat !important
+  background-size: 100%
   
 .button
   +anchor-button
@@ -36,13 +36,21 @@ body
       +link-colors($link_color, adjust-lightness($link_color, 20%))
       
 #container
-  @include background-image(linear-gradient(top, #ddd 0%, #fff 100%))
+  background: $primary_color
+  border: 1px solid adjust-lightness($primary_color, -50%)
+  +opacity(.9)
   li
     a
       +link-colors(#333, #777)
       &:hover
         background: white
         +box-shadow(adjust-lightness($default-text-shadow-color, -50%), 0, 0, 5px)
+
+#introduction
+  p
+    font-size: 12pt
+    line-height: 1.5em
+    margin: 1em 0
 
 #info, .info
   +info
@@ -70,3 +78,18 @@ form
   +info
   h3
     +header-text
+    
+#zero-count
+  +notice
+  
+.hint
+  font-size: 9pt
+  margin: .2em
+  padding: 0 !important
+  color: grey
+  
+#footer
+  background: #555
+  color: white
+  border: 1px solid black
+  +opacity(.6)

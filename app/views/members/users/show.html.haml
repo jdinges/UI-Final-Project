@@ -1,50 +1,14 @@
 -title "#{@user.title} #{@user.name}"
 
--content_for :style_name do
-  = "#{@user.style_name}"
+= render "content"
 
-= link_to "View all Professors", members_users_path, :class => "button positive"
--if @user == current_user
-  #edit-button
-    =link_to "Edit", edit_members_user_path, :class => "button positive"
-  .clear
-.clear
+- if @user == current_user
+  .clearfix
+    = link_to "Edit", edit_members_user_path(current_user), :class => "button positive"
 
-#prof-info
-  .content-section
-    %h3 Biography
-    -if current_user == @user
-      #add-element
-        =link_to "Edit Biography", edit_members_user_path(current_user)
-      .clear
- 
-    -unless @user.bio.nil?
-      %span= @user.bio
-    
-  .content-section
-    %h3 Courses
-    -if current_user == @user
-      #add-element
-        =link_to "+Add Course", new_members_course_path(current_user)
-        %br
-      .clear
-    -unless @user.courses.count == 0
-      -for course in @user.courses
-        %p=link_to "#{course.title}", course.link
-
-  .content-section
-    %h3 Papers
-    -if current_user == @user
-      #add-element
-        =link_to "+Add Paper", new_members_paper_path(current_user)
-        %br
-      .clear
-    -unless @user.papers.count == 0
-      -for paper in @user.papers
-        %p= paper.title
-
-  
-        
--if @user == current_user
-  = link_to "Edit", edit_members_user_path, :class => "button positive"
-= link_to "View all Professors", members_users_path, :class => "button positive"
+- if @user == current_user
+  %h3 Curious what other professors have done?
+  = link_to "View other Professors", members_users_path, :class => "button positive"
+- else
+  %h3 Enough inspiration?
+  = link_to "Back to your persona", members_user_path(current_user), :class => "button positive"

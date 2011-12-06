@@ -1,4 +1,5 @@
 @import "compass/utilities/general/clearfix"
+@import "partials/_forms"
 body
   margin: 0 !important
   font:
@@ -8,6 +9,9 @@ body
 a
   img
     border: none
+
+h3
+  font-size: 16pt
 
 .clear
   clear: both
@@ -55,15 +59,16 @@ a
   #edit-button
     float:right
       
-#style-switcher
-  margin: 1em
+#info, .info
   h3
     font-size: 14pt
-    padding-bottom: .5em
-  a
-    display: inline-block
-    border: 1px solid grey
-    padding: 1em
+    padding-bottom: .4em
+  ol
+    margin-bottom: 1em
+    list-style-type: decimal
+    list-style-position: inside
+    li
+      padding: 1em 1em 0 1em
 
 #flash_notice,
 #flash_error,
@@ -87,7 +92,22 @@ a
     font-size: 12pt
     margin-bottom: .75em
     float: left
-  #add-element
+  .add-element
     float: right
   #content
     float: left
+  .modifiers
+    float: right
+    a
+      display: inline !important
+      padding: 0 1em
+    
+#layout
+  h3
+    cursor: move
+    
+#footer
+  width: 75%
+  margin: 0 auto
+  padding: 20px 40px
+  margin-top: 20px

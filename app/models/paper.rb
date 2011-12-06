@@ -1,5 +1,5 @@
 class Paper < ActiveRecord::Base
-  attr_accessible :user_id, :title
+  attr_accessible :user_id, :title, :authors, :publisher, :date, :page_count, :link
   
   belongs_to :user
   

@@ -1,0 +1,20 @@
+<% title "Research" %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @research.title %>
+</p>
+<p>
+  <strong>Link:</strong>
+  <%= @research.link %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @research.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_research_path(@research) %> |
+  <%= link_to "Destroy", @research, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", researches_path %>
+</p>

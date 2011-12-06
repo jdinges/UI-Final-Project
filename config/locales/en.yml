@@ -2,4 +2,17 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  formtastic:
+    labels:
+      user:
+        published: "Publication Status"
+    placeholders:
+      user:
+        password: "New Password"
+        password_confirmation: "Confirm Password"
+        name: "Your Full Name"
+        title: "Professor, Doctor, etc."
+    actions:
+      user:
+        create: "Sign Up"
+        update: "Save Changes"
