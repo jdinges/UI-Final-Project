@@ -8,7 +8,7 @@
       -if current_user == @user
         %button.add-element#edit-biography Edit Biography
         .clear
-        %p#bio= editable_field @user, :bio, :update_url => members_user_path, :submitdata => { :ajax => true }, :type => 'textarea', :rows => 5, :submit => 'Update', :cancel => 'Cancel', :tooltip => 'Click to edit', :indicator => 'Saving...'
+        %p#bio= editable_field @user, :bio, :update_url => members_user_path, :submitdata => { :ajax => true }, :type => 'textarea', :submit => 'Update', :cancel => 'Cancel', :tooltip => 'Click to edit', :indicator => 'Saving...'
       -else
         %p#bio= @user.bio
     
@@ -27,8 +27,9 @@
       .add-element
         =button_to "+Add Paper", new_members_paper_path(current_user)
       .clear
-    -for paper in @user.papers
-      %p= paper.title
+    %ul#papers
+      -for paper in @user.papers
+        %li= paper.title
 
   .content-section
     %h3 Education
@@ -36,8 +37,9 @@
       .add-element
         =button_to "+Add School", new_members_education_path(current_user)
       .clear
-    -for education in @user.educations
-      %p= education.degree
+    %ul#educations
+      -for education in @user.educations
+        %li= education.degree
 
   .content-section
     %h3 Research
@@ -45,5 +47,6 @@
       .add-element
         =button_to "+Add Research", new_members_research_path(current_user)
       .clear
-    -for research in @user.researches
-      %p= research.title
+    %ul#researches
+      -for research in @user.researches
+        %li= research.title
