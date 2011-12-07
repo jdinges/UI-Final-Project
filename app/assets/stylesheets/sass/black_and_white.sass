@@ -10,7 +10,7 @@
 
 $primary_color: #fff
 $text_color: #000
-$link_color: blue
+$link_color: adjust-lightness(blue, -20%)
 $gradient_begin: #fff
 $gradient_end: #fff
 $default-text-shadow-color: $primary_color
@@ -40,7 +40,7 @@ a
       +hover-link
       
 #container
-  background: white
+  background: #eee
   +opacity(.9)
   li.buttons
     a
@@ -48,9 +48,15 @@ a
       &:hover
         background: white
         +box-shadow(adjust-lightness($default-text-shadow-color, -50%), 0, 0, 5px)
+  li
+    a
+      +hover-link
 
 #info, .info
   +info
+  
+.notice
+  +notice
 
 #flash_notice
   +success
@@ -73,5 +79,12 @@ form
   
 .content-section
   +feedback-base
+  background: #fff !important
   h3
     +header-text
+
+#footer
+  background: #555
+  color: white
+  border: 1px solid black
+  +opacity(.6)
