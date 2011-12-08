@@ -22,9 +22,9 @@
     .clearfix
       -if current_user == @user
         %h3.logged-in Biography
-        %button.add-element#edit-biography Edit Biography
+        %button.add-element.positive#edit-biography Edit Biography
         .clear
-        %p#bio= editable_field @user, :bio, :submitdata => { :ajax => true }, :type => 'textarea', :submit => 'Update', :cancel => 'Cancel', :tooltip => 'Click to edit', :indicator => 'Saving...'
+        %p#bio= editable_field @user, :bio, :submitdata => { :ajax => true }, :type => 'textarea', :submit => 'Update', :cancel => 'Cancel', :tooltip => 'Click to edit', :indicator => 'Saving...' 
       -else
         %h3 Biography
         %p#bio= @user.bio
