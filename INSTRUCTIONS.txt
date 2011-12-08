@@ -1,0 +1,8 @@
+To run this application you'll need a system with Ruby and Rails 3 installed. If you have a system that adheres to these requirements, then you can skip to step 3. If your system doesn't meet these requirements, then you'll want to follow the following steps...
+
+	1. Install ruby >= 1.8.7
+	2. Install rails: gem install rails
+	3. Update bundle: bundle install
+	4. Rake db: rake db:migrate
+	5. Run: rails server
+	6. Go to page: localhost:3000
