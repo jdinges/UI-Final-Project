@@ -9,6 +9,9 @@
       %li Choose a style  
     %p When you're ready for prime time change your persona from "draft" to "publish".  Make sure to click Update!
 
+- if show_title?
+  %h2= yield(:title)
+
 - if current_user?
   = link_to "Edit account information", edit_user_path(current_user), :class => "button positive edit"
   
