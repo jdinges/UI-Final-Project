@@ -1,13 +1,18 @@
 -title "#{@user.title} #{@user.name}"
 
-- if @user == current_user
-  = link_to "Edit account information", edit_members_user_path(current_user), :class => "button positive edit"
+
   
 - unless @user.published?
   .clear
   .notice
     %h3 Draft Status
     Your persona is currently in draft status.  Until you publish (click "edit account information" above) students will not be able to view your persona.
+
+- if show_title?
+  %h2= yield(:title)
+
+- if @user == current_user
+  = link_to "Edit account information", edit_members_user_path(current_user), :class => "button positive edit"
 
 .clear
 
