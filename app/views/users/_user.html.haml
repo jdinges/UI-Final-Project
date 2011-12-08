@@ -6,7 +6,7 @@
     -if current_user == @user
       %h3.logged-in Contact Information
       .add-element
-        =link_to "Edit Contact Info", edit_members_user_path(current_user), :class => "button positive"
+        =link_to "Edit Contact Info", edit_user_path(current_user), :class => "button positive"
       .clear
     -else
       %h3 Contact Information

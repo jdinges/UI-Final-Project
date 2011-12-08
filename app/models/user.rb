@@ -21,9 +21,4 @@ class User < ActiveRecord::Base
   def to_s
     self.full_name
   end
-
-  #internet says this will make fancy routes
-  def to_param
-    self.username
-  end
 end

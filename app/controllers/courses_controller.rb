@@ -17,6 +17,7 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(params[:course])
+    @course.user = current_user
     if @course.save
       respond_to do |format|
         format.html { redirect_to members_user_path(current_user), :notice => "Successfully created course." }
@@ -32,7 +33,7 @@ class CoursesController < ApplicationController
 
   def update
     if @course.update_attributes(params[:course])
-      redirect_to members_user_path(current_user), :notice => "Successfully updated course."
+      redirect_to user_path(current_user), :notice => "Successfully updated course."
     else
       render :action => 'edit'
     end
