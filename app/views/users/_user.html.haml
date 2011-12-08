@@ -1,0 +1,76 @@
+-content_for :style_name do
+  = "#{@user.style.stylesheet}"
+
+#prof-info
+  .content-section
+    -if current_user == @user
+      %h3.logged-in Contact Information
+      .add-element
+        =link_to "Edit Contact Info", edit_user_path(current_user), :class => "button positive"
+      .clear
+    -else
+      %h3 Contact Information
+    -#%ul#contact_info
+    -if @user.office?
+      %p Office: #{@user.office}
+    -if @user.phone_number?
+      %p Phone Number: #{@user.phone_number}
+    -if @user.email?
+      %p Email: #{@user.email}
+
+  .content-section
+    .clearfix
+      -if current_user == @user
+        %h3.logged-in Biography
+        %button.add-element#edit-biography Edit Biography
+        .clear
+        %p#bio= editable_field @user, :bio, :submitdata => { :ajax => true }, :type => 'textarea', :submit => 'Update', :cancel => 'Cancel', :tooltip => 'Click to edit', :indicator => 'Saving...'
+      -else
+        %h3 Biography
+        %p#bio= @user.bio
+ 
+  .content-section
+    -if current_user == @user
+      %h3.logged-in Courses
+      .add-element
+        =button_to "+Add Course", user_courses_path(@user), :method => :post, :remote => true, :class => "button positive"
+      .clear
+    -else
+      %h3 Courses
+    %ul#courses
+      - for course in @user.courses
+        = render course
+
+  .content-section
+    -if current_user == @user
+      %h3.logged-in Papers and Publications
+      .add-element
+        =button_to "+Add Paper", user_papers_path(@user), :method => :post, :remote => true, :class => "button positive"
+      .clear
+    -else
+      %h3 Papers and Publications
+    %ul#papers
+      -for paper in @user.papers
+        %li= paper.title
+
+  .content-section
+    -if current_user == @user
+      %h3.logged-in Education
+      .add-element
+        =link_to "+Add School", new_user_education_path(current_user), :class => "button positive"
+      .clear
+    %ul#educations
+      -for education in @user.educations
+        %li= education.degree
+
+  .content-section
+    -if current_user == @user
+      %h3.logged-in Research
+      .add-element
+        =link_to "+Add Research", new_user_research_path(current_user), :class => "button positive"
+      .clear
+    -else
+      %h3 Research
+    %ul#researches
+      -for research in @user.researches
+        %li= research.title

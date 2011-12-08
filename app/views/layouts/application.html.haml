@@ -22,10 +22,7 @@
   %body
     #header
       %h1
-        -unless current_user
-          =link_to "Pr.fess.r", :root
-        -else
-          =link_to "Pr.fess.r", members_root_url
+        =link_to "Pr.fess.r", :root
       =userlinks(current_user)
       .clear
     
