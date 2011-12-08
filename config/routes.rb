@@ -2,8 +2,8 @@ UIFinalProject::Application.routes.draw do
   root :to => "users#splash"
   
   namespace :members do
-    root :to => "users#edit"
     resources :users
+    root :to => 'users#index'
   end
   
   # what is this for? doesn't seem to affect anything
