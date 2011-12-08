@@ -1,14 +1,12 @@
 class UsersController < ApplicationController
   before_filter :login_required, :only => [:edit, :update]
   before_filter :find_user, :only => [:edit, :update]
-  respond_to :html
 
   def new
     @user = User.new
   end
   
   def splash
-    respond_with current_user if logged_in?
   end
   
   def learn
@@ -36,7 +34,11 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(params[:user])
-      redirect_to @user, :notice => "Your profile has been updated."
+      if params[:ajax]
+        render :text => @user.bio 
+      else
+        redirect_to @user, :notice => "Your profile has been updated."
+      end
     else
       render :action => 'edit'
     end
