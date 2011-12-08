@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => [:show]
   before_filter :find_course, :only => [:show, :edit, :update, :destroy]
 
   def index
@@ -10,9 +10,7 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @course = Course.new(params[:course])
-    @course.save
-    render :action => 'create'
+    @course = Course.new
   end
 
   def create

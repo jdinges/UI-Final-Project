@@ -1,0 +1,6 @@
+= content_tag_for :li, paper do
+  -if paper.user == current_user
+    .modifiers
+      = link_to "Edit Paper", edit_user_paper_path(current_user,paper)
+      = link_to "Delete Paper", user_paper_path(current_user,paper), :remote => true, :confirm => 'Are you sure?', :method => :delete 
+  %p= link_to paper.title, paper.link

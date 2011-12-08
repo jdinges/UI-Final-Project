@@ -1,0 +1,6 @@
+= content_tag_for( :li, education ) do
+  -if education.user == current_user
+    .modifiers
+      = link_to "Edit education", edit_user_education_path(current_user,education)
+      = link_to "Delete education", user_education_path(current_user,education), :remote => true, :confirm => 'Are you sure?', :method => :delete 
+  %span= education

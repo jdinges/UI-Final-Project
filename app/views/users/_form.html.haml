@@ -5,6 +5,7 @@
       = f.input :published, :as => :radio, :collection => {"Published" => true, "Draft" => false}, :hint => @user.published? ? "Marking your persona as a draft will make it no longer publicly viewable." : "Once you've entered all the information you want, publish it so the world can see you!"
     = f.inputs "Choose a style for your page" do
       = f.input :style, :as => :radio
+    = f.inputs "Add your Twitter Feed", :twitter_username
     = f.inputs "Account Settings" do
       = f.input :username, :required => false
       = f.input :email, :required => false
