@@ -1,0 +1,6 @@
+= content_tag_for( :li, course ) do
+  -if course.user == current_user
+    .modifiers
+      = link_to "Edit Course", edit_user_course_path(current_user,course)
+      = link_to "Delete Course", user_course_path(current_user,course), :remote => true, :confirm => 'Are you sure?', :method => :delete 
+  = link_to course.title, course.link

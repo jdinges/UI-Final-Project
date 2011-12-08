@@ -1,0 +1,15 @@
+- title "Paper"
+
+%p
+  %strong User:
+  = @paper.user
+%p
+  %strong Title:
+  = @paper.title
+
+%p
+  = link_to "Edit", edit_user_paper_path(@paper)
+  |
+  = link_to "Destroy",user_paper_path(@paper), :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All",user_papers_path

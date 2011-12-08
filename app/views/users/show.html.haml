@@ -1,55 +1,33 @@
 -title "#{@user.title} #{@user.name}"
+- if !request.referer.nil? and URI(request.referer).path == signup_path
+  #info
+    %h3 Welcome to your new page!
+    %p Let's get started.
+    %ol
+      %li Add in some information about yourself here 
+      %li Rearrange your content
+      %li Choose a style  
+    %p When you're ready for prime time change your persona from "draft" to "publish".  Make sure to click Update!
 
-.clear
+- if show_title?
+  %h2= yield(:title)
 
--content_for :style_name do
-  = "#{@user.style.stylesheet}"
-
-#prof-info
-
-  .content-section
-    %h3 Contact Information
-    -#%ul#contact_info
-    -if @user.office?
-      %p Office: #{@user.office}
-    -if @user.phone_number?
-      %p Phone Number: #{@user.phone_number}
-    -if @user.email?
-      %p Email: #{@user.email}
+- if current_user?
+  = link_to "Edit account information", edit_user_path(current_user), :class => "button positive edit"
   
+- unless @user.published?
+  .clear
+  .notice
+    %h3 Draft Status
+    Your persona is currently in draft status.  Until you publish (click "edit account information" above) students will not be able to view your persona.
 
-  -if @user.bio
-    .content-section
-      .clearfix
-        %h3 Biography
-        %p#bio= @user.bio
+- if @user.published? or current_user?
+  = render @user
 
-  - if @user.courses.count > 0
-    .content-section
-      %h3 Courses
-      %ul#courses
-        - for course in @user.courses
-          %li= link_to course.title, course.link
-          
-  - if @user.papers.count > 0
-    .content-section
-      %h3 Papers and Publications
-      %ul#papers
-        -for paper in @user.papers
-          %li= paper.title
-
-  - if @user.educations.count > 0
-    .content-section
-      %h3 Education
-      %ul#educations
-        -for education in @user.educations
-          %li= education.degree
-
-  - if @user.researches.count > 0
-    .content-section
-      %h3 Research
-      %ul#researches
-        -for research in @user.researches
-          %li= research.title
-
-= link_to "View all personas", users_path, :class => "button positive"
+-if logged_in?
+  - if current_user?
+    %h4 Curious what other professors' personas look like?
+    = link_to "View other Professors",users_path, :class => "button positive"
+  - else
+    %h4 Enough inspiration?
+    = link_to "Back to your persona",user_path(current_user), :class => "button positive"

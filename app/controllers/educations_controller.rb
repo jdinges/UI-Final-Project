@@ -1,4 +1,4 @@
-class Members::EducationsController < ApplicationController
+class EducationsController < ApplicationController
   before_filter :login_required
   before_filter :find_education, :only => [:show, :edit, :update, :destroy]
   
@@ -17,7 +17,7 @@ class Members::EducationsController < ApplicationController
     @education = Education.new(params[:education])
     @education.user = current_user
     if @education.save
-      redirect_to members_user_path(current_user), :notice => "Successfully created education."
+      redirect_to user_path(current_user), :notice => "Successfully created education."
     else
       render :action => 'new'
     end

@@ -1,4 +1,4 @@
-class Members::CoursesController < ApplicationController
+class CoursesController < ApplicationController
   before_filter :login_required
   before_filter :find_course, :only => [:show, :edit, :update, :destroy]
 
@@ -10,8 +10,7 @@ class Members::CoursesController < ApplicationController
   end
 
   def new
-    @course = Course.new
-    @course.user = current_user
+    @course = Course.new(params[:course])
     @course.save
     render :action => 'create'
   end
@@ -21,7 +20,7 @@ class Members::CoursesController < ApplicationController
     @course.user = current_user
     if @course.save
       respond_to do |format|
-        format.html { redirect_to members_user_path(current_user), :notice => "Successfully created course." }
+        format.html { redirect_to user_path(current_user), :notice => "Successfully created course." }
         format.js 
       end
     else
@@ -34,7 +33,7 @@ class Members::CoursesController < ApplicationController
 
   def update
     if @course.update_attributes(params[:course])
-      redirect_to members_user_path(current_user), :notice => "Successfully updated course."
+      redirect_to user_path(current_user), :notice => "Successfully updated course."
     else
       render :action => 'edit'
     end
