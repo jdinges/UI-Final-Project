@@ -1,0 +1,33 @@
+-title "#{@user.title} #{@user.name}"
+- if !request.referer.nil? and URI(request.referer).path == signup_path
+  #info
+    %h3 Welcome to your new page!
+    %p Let's get started.
+    %ol
+      %li Add in some information about yourself here 
+      %li Rearrange your content
+      %li Choose a style  
+    %p When you're ready for prime time change your persona from "draft" to "publish".  Make sure to click Update!
+
+- if show_title?
+  %h2= yield(:title)
+
+- if current_user?
+  = link_to "Edit account information", edit_user_path(current_user), :class => "button positive edit"
+  
+- unless @user.published?
+  .clear
+  .notice
+    %h3 Draft Status
+    Your persona is currently in draft status.  Until you publish (click "edit account information" above) students will not be able to view your persona.
+
+- if @user.published? or current_user?
+  = render @user
+
+-if logged_in?
+  - if current_user?
+    %h4 Curious what other professors' personas look like?
+    = link_to "View other Professors",users_path, :class => "button positive"
+  - else
+    %h4 Enough inspiration?
+    = link_to "Back to your persona",user_path(current_user), :class => "button positive"
