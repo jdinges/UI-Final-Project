@@ -69,13 +69,12 @@
       -if current_user == @user
         %h3.logged-in Research
         .add-element
-          =link_to "+Add Research", new_user_research_path(current_user), :class => "button positive"
+          =button_to "+Add Research", user_researches_path(@user), :method => :post, :remote => true, :class => "button positive"
         .clear
       -else
         %h3 Research
       %ul#researches
-        -for research in @user.researches
-          %li= research.title
+        = render @user.researches
   - if !@user.twitter_username.empty?
     .content-section
       %h3 Twitter
