@@ -20,7 +20,7 @@
       %p Email: #{@user.email}
   
 
-  -if @user.bio
+  -if @user.bio or !@user.published?
     .content-section
       .clearfix
         -if current_user == @user
@@ -32,49 +32,54 @@
           %h3 Biography
           %p#bio= @user.bio
    
-  .content-section
-    -if current_user == @user
-      %h3.logged-in Courses
-      .add-element
-        =button_to "+Add Course", new_members_course_path(current_user), :method => :get, :remote => true
-      .clear
-    -else
-      %h3 Courses
-    %ul#courses
-      - for course in @user.courses
-        = render course
- 
-        
-  .content-section
-    -if current_user == @user
-      %h3.logged-in Papers and Publications
-      .add-element
-        =button_to "+Add Paper", new_members_paper_path(current_user)
-      .clear
-    -else
-      %h3 Papers and Publications
-    %ul#papers
-      -for paper in @user.papers
-        %li= paper.title
+  - if @user.courses.count > 0  or !@user.published?
+    .content-section
+      -if current_user == @user
+        %h3.logged-in Courses
+        .add-element
+          =button_to "+Add Course", new_members_course_path(current_user), :method => :get, :remote => true
+        .clear
+      -else
+        %h3 Courses
+      %ul#courses
+        - for course in @user.courses
+          = render course
+          
+  - if @user.papers.count > 0 or !@user.published?  
+    .content-section
+      -if current_user == @user
+        %h3.logged-in Papers and Publications
+        .add-element
+          =button_to "+Add Paper", new_members_paper_path(current_user)
+        .clear
+      -else
+        %h3 Papers and Publications
+      %ul#papers
+        -for paper in @user.papers
+          %li= paper.title
 
-  .content-section
-    -if current_user == @user
-      %h3.logged-in Education
-      .add-element
-        =button_to "+Add School", new_members_education_path(current_user)
-      .clear
-    %ul#educations
-      -for education in @user.educations
-        %li= education.degree
+  - if @user.educations.count > 0 or !@user.published?
+    .content-section
+      -if current_user == @user
+        %h3.logged-in Education
+        .add-element
+          =button_to "+Add School", new_members_education_path(current_user)
+        .clear
+      -else
+        %h3 Education
+      %ul#educations
+        -for education in @user.educations
+          %li= education.degree
 
-  .content-section
-    -if current_user == @user
-      %h3.logged-in Research
-      .add-element
-        =button_to "+Add Research", new_members_research_path(current_user)
-      .clear
-    -else
-      %h3 Research
-    %ul#researches
-      -for research in @user.researches
-        %li= research.title
+  - if @user.researches.count > 0 or !@user.published?
+    .content-section
+      -if current_user == @user
+        %h3.logged-in Research
+        .add-element
+          =button_to "+Add Research", new_members_research_path(current_user)
+        .clear
+      -else
+        %h3 Research
+      %ul#researches
+        -for research in @user.researches
+          %li= research.title
