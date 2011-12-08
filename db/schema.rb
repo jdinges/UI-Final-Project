@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206053501) do
+ActiveRecord::Schema.define(:version => 20111208063636) do
 
   create_table "courses", :force => true do |t|
     t.integer  "user_id"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20111206053501) do
 
   create_table "educations", :force => true do |t|
     t.string   "university"
-    t.string   "degree"
-    t.string   "year"
+    t.string   "degree",     :default => "Your Degree"
+    t.string   "year",       :default => "Your University"
     t.string   "city"
     t.string   "state"
     t.string   "country"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20111206053501) do
   end
 
   create_table "researches", :force => true do |t|
-    t.string   "title"
-    t.string   "link"
+    t.string   "title",       :default => "My Research Paper"
+    t.string   "link",        :default => "http://my.research.url"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20111206053501) do
     t.string   "phone_number"
     t.boolean  "published",         :default => false, :null => false
     t.integer  "style_id",          :default => 1
+    t.string   "twitter_username"
   end
 
 end

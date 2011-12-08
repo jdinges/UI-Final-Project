@@ -15,7 +15,7 @@
 - if current_user?
   = link_to "Edit account information", edit_user_path(current_user), :class => "button positive edit"
   
-- unless @user.published?
+- if !@user.published? and current_user?
   .clear
   .notice
     %h3 Draft Status

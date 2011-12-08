@@ -1,0 +1,6 @@
+= content_tag_for( :li, research ) do
+  -if research.user == current_user
+    .modifiers
+      = link_to "Edit research", edit_user_research_path(current_user,research)
+      = link_to "Delete research", user_research_path(current_user,research), :remote => true, :confirm => 'Are you sure?', :method => :delete 
+  = link_to research.title, research.link

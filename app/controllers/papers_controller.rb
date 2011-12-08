@@ -1,6 +1,6 @@
 class PapersController < ApplicationController
   before_filter :login_required, :except => [:show]
-  before_filter :find_paper, :except => [:index]
+  before_filter :find_paper, :only => [:show, :edit, :update, :destroy]
 
   def index
     @papers = Paper.all
@@ -17,9 +17,11 @@ class PapersController < ApplicationController
     @paper = Paper.new(params[:paper])
     @paper.user = current_user
     if @paper.save
-      #format.html { redirect_to edit_user_path(@paper.user), :notice => "Successfully created paper." }
-	    render :json => @paper
-	  else
+      respond_to do |format|
+        format.html { redirect_to user_path(current_user), :notice => "Successfully created course." }
+        format.js 
+      end
+    else
       render :edit
     end
   end
@@ -29,8 +31,7 @@ class PapersController < ApplicationController
 
   def update
     if @paper.update_attributes(params[:paper])
-      #redirect_to edit_user_path(@paper.user), :notice  => "Successfully updated paper." }
-	    render :text => @paper.title
+      redirect_to @paper.user, :notice  => "Successfully updated paper."
     else
       render :action => 'edit'
     end
@@ -38,8 +39,6 @@ class PapersController < ApplicationController
 
   def destroy
     @paper.destroy
-    #redirect_to edit_user_path(@paper.user), :notice => "Successfully destroyed paper."
-	render :text => 'destroyed'
   end
   
   private

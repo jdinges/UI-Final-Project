@@ -1,5 +1,5 @@
 class ResearchesController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => [:show]
   before_filter :find_research, :only => [:show, :edit, :update, :destroy]
   def index
     @researches = Research.all
@@ -17,7 +17,10 @@ class ResearchesController < ApplicationController
     @research = Research.new(params[:research])
     @research.user = current_user
     if @research.save
-      redirect_to user_path(current_user), :notice => "Successfully created research."
+      respond_to do |format|
+        format.html { redirect_to user_path(current_user), :notice => "Successfully created research." }
+        format.js 
+      end
     else
       render :action => 'new'
     end
@@ -30,7 +33,7 @@ class ResearchesController < ApplicationController
   def update
     @research = Research.find(params[:id])
     if @research.update_attributes(params[:research])
-      redirect_to @research, :notice  => "Successfully updated research."
+      redirect_to current_user, :notice  => "Successfully updated research."
     else
       render :action => 'edit'
     end
@@ -39,7 +42,6 @@ class ResearchesController < ApplicationController
   def destroy
     @research = Research.find(params[:id])
     @research.destroy
-    redirect_to researches_url, :notice => "Successfully destroyed research."
   end
   
   private

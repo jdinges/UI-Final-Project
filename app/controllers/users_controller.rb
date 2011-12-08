@@ -31,6 +31,9 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    if !@user.published? and @user != current_user
+      redirect_to :root, :notice => "That user hasn't published their persona"
+    end
   end
 
   def edit
