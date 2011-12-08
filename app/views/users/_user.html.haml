@@ -61,6 +61,8 @@
         .add-element
           =button_to "+Add School", user_educations_path(@user), :method => :post, :remote => true, :class => "button positive"
         .clear
+      -else
+        %h3 Research
       %ul#educations
         = render @user.educations
 
