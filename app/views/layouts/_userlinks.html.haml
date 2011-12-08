@@ -1,6 +1,8 @@
 #userlinks
   %span
     You are logged in as
-    =link_to "#{current_user}.", current_user
-  = link_to "Account Settings.", edit_user_path(current_user)
-  = link_to 'Log Out', logout_path
+    =link_to "#{current_user}", current_user
+    |
+    = link_to "Account Settings", edit_user_path(current_user)
+    |
+    = link_to 'Log Out', logout_path
