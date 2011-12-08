@@ -20,7 +20,7 @@
       %p Email: #{@user.email}
   
 
-  -if @user.bio or !@user.published?
+  -if @user.bio or @user == current_user
     .content-section
       .clearfix
         -if current_user == @user
@@ -32,7 +32,7 @@
           %h3 Biography
           %p#bio= @user.bio
 
-  - if @user.courses.count > 0  or !@user.published?
+  - if @user.courses.count > 0  or @user == current_user
     .content-section
       -if current_user == @user
         %h3.logged-in Courses
@@ -45,7 +45,7 @@
         - for course in @user.courses
           = render course
           
-  - if @user.papers.count > 0 or !@user.published?  
+  - if @user.papers.count > 0 or @user == current_user 
     .content-section
       -if current_user == @user
         %h3.logged-in Papers and Publications
@@ -58,7 +58,7 @@
         -for paper in @user.papers
           %li= paper.title
 
-  - if @user.educations.count > 0 or !@user.published?
+  - if @user.educations.count > 0 or @user == current_user
     .content-section
       -if current_user == @user
         %h3.logged-in Education
@@ -71,7 +71,7 @@
         -for education in @user.educations
           %li= education.degree
 
-  - if @user.researches.count > 0 or !@user.published?
+  - if @user.researches.count > 0 or @user == current_user
     .content-section
       -if current_user == @user
         %h3.logged-in Research
