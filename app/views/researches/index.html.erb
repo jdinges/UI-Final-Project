@@ -11,11 +11,11 @@
       <td><%= research.title %></td>
       <td><%= research.link %></td>
       <td><%= research.description %></td>
-      <td><%= link_to "Show", research %></td>
-      <td><%= link_to "Edit", edit_research_path(research) %></td>
-      <td><%= link_to "Destroy", research, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Show", user_research_path(current_user,research) %></td>
+      <td><%= link_to "Edit", edit_user_research_path(current_user,research) %></td>
+      <td><%= link_to "Destroy", user_research_path(current_user,research), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Research", new_research_path %></p>
+<p><%= link_to "New Research", new_user_research_path(current_user) %></p>

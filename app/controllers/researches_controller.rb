@@ -1,4 +1,4 @@
-class Members::ResearchesController < ApplicationController
+class ResearchesController < ApplicationController
   before_filter :login_required
   before_filter :find_research, :only => [:show, :edit, :update, :destroy]
   def index
