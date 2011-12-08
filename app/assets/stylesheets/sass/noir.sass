@@ -18,6 +18,7 @@ $default-text-shadow-blur: 5px
 body
   background: url("noir.jpg") #000 no-repeat !important
   background-size: 100%
+  color: $link_color
   
 a
   // normal, hover
@@ -30,7 +31,7 @@ h3
   +anchor-button
   
 #header
-  color: $link_color
+  color: adjust-lightness($link_color, -20%)
   background-color: $gradient_begin
   @include filter-gradient($gradient_begin, $gradient_end, vertical)
   @include background-image(linear-gradient(top, $gradient_begin 0%, $gradient_end 100%))

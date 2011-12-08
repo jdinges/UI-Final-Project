@@ -21,12 +21,6 @@
     %h3 Draft Status
     Your persona is currently in draft status.  Until you publish (click "edit account information" above) students will not be able to view your persona.
 
-.clear
-- if @user.published? or current_user?
-  = render @user
--else
-  %p not published!
-
 -if logged_in?
   - if current_user?
     %h4 Curious what other professors' personas look like?
