@@ -13,7 +13,9 @@ The goal of this project is to create a user-friendly application for professors
 * __Choose Template__: By using this functionality, the user can quickly choose between some templates and dynamically reorganize their content. The templates will allow the professor to display their information in an attractive format without the hassle of manual CSS.
 * __Modify Element__: The professor will need to be able to individually modify stylistic properties and placement of an element within predefined parameters so as to maintain consistency but enable them to have some control over look and feel.
 * __Add content from other websites__: An interface to add dynamic elements ("Widgets") from other websites, such as a Twitter feed, or calendar.
-Secondary Functionality
+
+###Secondary Functionality
+
 * __Upload Documents/Photos__: The professor will be able to upload content such as photos and publications related to their work so display on their webpage.
 * __Add/Modify Content__: The professor will be presented with a simple interface to edit and add text content to their website, without worrying about the underlying HTML code.
 
