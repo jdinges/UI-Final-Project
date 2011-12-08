@@ -25,20 +25,19 @@
       .clearfix
         -if current_user == @user
           %h3.logged-in Biography
-          %button.add-element#edit-biography Edit Biography
+          %button.add-element#edit-biography.positive Edit Biography
           .clear
           %p#bio= editable_field @user, :bio, :update_url => members_user_path, :submitdata => { :ajax => true }, :type => 'textarea', :submit => 'Update', :cancel => 'Cancel', :tooltip => 'Click to edit', :indicator => 'Saving...'
         -else
           %h3 Biography
           %p#bio= @user.bio
-   
-<<<<<<< HEAD
+
   - if @user.courses.count > 0  or !@user.published?
     .content-section
       -if current_user == @user
         %h3.logged-in Courses
         .add-element
-          =button_to "+Add Course", new_members_course_path(current_user), :method => :get, :remote => true
+          =link_to "+Add Course", new_members_course_path(current_user), :method => :get, :remote => true, :class => "button positive"
         .clear
       -else
         %h3 Courses
@@ -51,7 +50,7 @@
       -if current_user == @user
         %h3.logged-in Papers and Publications
         .add-element
-          =button_to "+Add Paper", new_members_paper_path(current_user)
+          =link_to "+Add Paper", new_members_paper_path(current_user), :class => "button positive"
         .clear
       -else
         %h3 Papers and Publications
@@ -64,7 +63,7 @@
       -if current_user == @user
         %h3.logged-in Education
         .add-element
-          =button_to "+Add School", new_members_education_path(current_user)
+          =link_to "+Add School", new_members_education_path(current_user), :class => "button positive"
         .clear
       -else
         %h3 Education
@@ -77,58 +76,10 @@
       -if current_user == @user
         %h3.logged-in Research
         .add-element
-          =button_to "+Add Research", new_members_research_path(current_user)
+          =link_to "+Add Research", new_members_research_path(current_user), :class => "button positive"
         .clear
       -else
         %h3 Research
       %ul#researches
         -for research in @user.researches
           %li= research.title
-=======
-  .content-section
-    -if current_user == @user
-      %h3.logged-in Courses
-      .add-element
-        =link_to "+Add Course", new_members_course_path(current_user), :method => :get, :remote => true, :class => "button positive"
-      .clear
-    -else
-      %h3 Courses
-    %ul#courses
-      - for course in @user.courses
-        = render course
- 
-        
-  .content-section
-    -if current_user == @user
-      %h3.logged-in Papers and Publications
-      .add-element
-        =link_to "+Add Paper", new_members_paper_path(current_user), :class => "button positive"
-      .clear
-    -else
-      %h3 Papers and Publications
-    %ul#papers
-      -for paper in @user.papers
-        %li= paper.title
-
-  .content-section
-    -if current_user == @user
-      %h3.logged-in Education
-      .add-element
-        =link_to "+Add School", new_members_education_path(current_user), :class => "button positive"
-      .clear
-    %ul#educations
-      -for education in @user.educations
-        %li= education.degree
-
-  .content-section
-    -if current_user == @user
-      %h3.logged-in Research
-      .add-element
-        =link_to "+Add Research", new_members_research_path(current_user), :class => "button positive"
-      .clear
-    -else
-      %h3 Research
-    %ul#researches
-      -for research in @user.researches
-        %li= research.title
->>>>>>> 9b6f177645dffaef2998de3d7da18f47ed9813a6
