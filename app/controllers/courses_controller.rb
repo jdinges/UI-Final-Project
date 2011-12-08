@@ -20,7 +20,7 @@ class CoursesController < ApplicationController
     @course.user = current_user
     if @course.save
       respond_to do |format|
-        format.html { redirect_to members_user_path(current_user), :notice => "Successfully created course." }
+        format.html { redirect_to user_path(current_user), :notice => "Successfully created course." }
         format.js 
       end
     else

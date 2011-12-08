@@ -1,13 +1,5 @@
 UIFinalProject::Application.routes.draw do  
   root :to => "users#splash"
-  
-# namespace :members do
-#   root :to => "members/users#index"
-#   resources :users
-# end
-  
-  # what is this for? doesn't seem to affect anything
-  #resources :roles
   resources :users do
     resources :courses
     resources :links

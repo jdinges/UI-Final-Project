@@ -3,6 +3,6 @@
 = render 'form'
 
 %p
-  = link_to "Show", members_paper_path(@paper)
+  = link_to "Show", user_paper_path(current_user,@paper)
   |
-  = link_to "View All", members_papers_path
+  = link_to "View All", user_papers_path

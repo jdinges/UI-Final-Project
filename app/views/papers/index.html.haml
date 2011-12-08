@@ -8,8 +8,8 @@
     %tr
       %td= paper.user_id
       %td= paper.title
-      %td= link_to 'Show', members_paper_path(paper)
-      %td= link_to 'Edit', edit_members_paper_path(paper)
-      %td= link_to 'Destroy', members_paper_path(paper), :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', paper_path(paper)
+      %td= link_to 'Edit', edit_paper_path(paper)
+      %td= link_to 'Destroy',paper_path(paper), :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "New Paper", new_members_paper_path
+%p= link_to "New Paper", new_user_paper_path
