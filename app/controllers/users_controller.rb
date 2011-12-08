@@ -7,6 +7,10 @@ class UsersController < ApplicationController
   end
   
   def splash
+    if current_user #redirect to user's homepage
+      @user = current_user
+      render :show
+    end
   end
   
   def learn
