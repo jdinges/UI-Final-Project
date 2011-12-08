@@ -59,11 +59,10 @@
       -if current_user == @user
         %h3.logged-in Education
         .add-element
-          =link_to "+Add School", new_user_education_path(current_user), :class => "button positive"
+          =button_to "+Add School", user_educations_path(@user), :method => :post, :remote => true, :class => "button positive"
         .clear
       %ul#educations
-        -for education in @user.educations
-          %li= education.degree
+        = render @user.educations
 
   - if @user.researches.count > 0 or current_user == @user
     .content-section
@@ -77,3 +76,7 @@
       %ul#researches
         -for research in @user.researches
           %li= research.title
+  - if !@user.twitter_username.empty?
+    .content-section
+      %h3 Twitter
+      = render "twitter"

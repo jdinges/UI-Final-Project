@@ -31,8 +31,7 @@ class PapersController < ApplicationController
 
   def update
     if @paper.update_attributes(params[:paper])
-      #redirect_to edit_user_path(@paper.user), :notice  => "Successfully updated paper." }
-	    render :text => @paper.title
+      redirect_to @paper.user, :notice  => "Successfully updated paper."
     else
       render :action => 'edit'
     end
