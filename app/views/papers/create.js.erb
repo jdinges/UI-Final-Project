@@ -1,0 +1,2 @@
+$('#papers').prepend('<%= escape_javascript(render(@paper)) %>');
+$('#papers > li:first').hide().slideDown().effect('highlight', {}, 3000);
