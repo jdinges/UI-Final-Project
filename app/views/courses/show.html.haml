@@ -1,0 +1,18 @@
+- title "Course"
+
+%p
+  %strong User:
+  = @course.user
+%p
+  %strong Title:
+  = @course.title
+%p
+  %strong Link:
+  = @course.link
+
+%p
+  = link_to "Edit", edit_course_path(@course)
+  |
+  = link_to "Destroy",course_path(@course), :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All",courses_path

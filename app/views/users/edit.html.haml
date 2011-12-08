@@ -1,0 +1,9 @@
+- title "Edit your Profile"
+
+-content_for :style_name do
+  = "#{@user.style.stylesheet}"
+
+.clear
+
+= render 'form'
+

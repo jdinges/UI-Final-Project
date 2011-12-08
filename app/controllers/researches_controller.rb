@@ -1,4 +1,4 @@
-class Members::ResearchesController < ApplicationController
+class ResearchesController < ApplicationController
   before_filter :login_required
   before_filter :find_research, :only => [:show, :edit, :update, :destroy]
   def index
@@ -17,7 +17,7 @@ class Members::ResearchesController < ApplicationController
     @research = Research.new(params[:research])
     @research.user = current_user
     if @research.save
-      redirect_to members_user_path(current_user), :notice => "Successfully created research."
+      redirect_to user_path(current_user), :notice => "Successfully created research."
     else
       render :action => 'new'
     end
