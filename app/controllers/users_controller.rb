@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create, :index, :show, :splash, :learn]
+  before_filter :login_required, :only => [:edit, :update]
   before_filter :find_user, :only => [:edit, :update]
+  respond_to :html
 
   def new
     @user = User.new
   end
   
   def splash
+    respond_with current_user if logged_in?
   end
   
   def learn
@@ -23,18 +25,10 @@ class UsersController < ApplicationController
   
   def index
     @users = User.where(:published => true).paginate(:page => params[:page])
-    respond_to do |format|
-      format.html
-      format.xml { render :xml => @users }
-    end
   end
   
   def show
     @user = User.find_by_username(params[:id])
-    respond_to do |format|
-      format.html
-      format.xml { render :xml => @user }
-    end
   end
 
   def edit
@@ -42,7 +36,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(params[:user])
-      redirect_to root_url, :notice => "Your profile has been updated."
+      redirect_to @user, :notice => "Your profile has been updated."
     else
       render :action => 'edit'
     end
@@ -50,7 +44,7 @@ class UsersController < ApplicationController
   
   private
 
-    def find_user
-      @user = current_user
-    end
+  def find_user
+    @user = current_user
+  end
 end

@@ -1,4 +1,20 @@
-= semantic_form_for @user do |f|
-  = f.error_messages
-  = f.inputs :name, :title, :email, :username, :password, :password_confirmation
-  = f.buttons 
+- if logged_in?
+  = semantic_form_for @user do |f|
+    = f.error_messages
+    = f.inputs @user.published? ? "Need to unpublish your persona?" : "Ready to publish your persona for public viewing?" do 
+      = f.input :published, :as => :radio, :collection => {"Published" => true, "Draft" => false}, :hint => @user.published? ? "Marking your persona as a draft will make it no longer publicly viewable." : "Once you've entered all the information you want, publish it so the world can see you!"
+    = f.inputs "Choose a style for your page" do
+      = f.input :style, :as => :radio
+    = f.inputs "Account Settings" do
+      = f.input :username, :required => false
+      = f.input :email, :required => false
+      = f.input :password, :required => false
+      = f.input :password_confirmation, :required => false
+      = f.input :name, :required => false
+      = f.input :title, :required => false
+    = f.buttons
+- else
+  = semantic_form_for @user do |f|
+    = f.error_messages
+    = f.inputs :name, :title, :email, :username, :password, :password_confirmation
+    = f.buttons 

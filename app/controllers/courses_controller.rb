@@ -1,4 +1,4 @@
-class Members::CoursesController < ApplicationController
+class CoursesController < ApplicationController
   before_filter :login_required
   before_filter :find_course, :only => [:show, :edit, :update, :destroy]
 
@@ -10,15 +10,13 @@ class Members::CoursesController < ApplicationController
   end
 
   def new
-    @course = Course.new
-    @course.user = current_user
+    @course = Course.new(params[:course])
     @course.save
     render :action => 'create'
   end
 
   def create
     @course = Course.new(params[:course])
-    @course.user = current_user
     if @course.save
       respond_to do |format|
         format.html { redirect_to members_user_path(current_user), :notice => "Successfully created course." }

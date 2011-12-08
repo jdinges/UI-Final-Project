@@ -1,6 +1,6 @@
-class Members::PapersController < ApplicationController
-  before_filter :login_required
-  before_filter :find_paper, :only => [:show, :edit, :update, :destroy]
+class PapersController < ApplicationController
+  before_filter :login_required, :except => [:show]
+  before_filter :find_paper, :except => [:index]
 
   def index
     @papers = Paper.all
@@ -20,7 +20,7 @@ class Members::PapersController < ApplicationController
       #format.html { redirect_to edit_members_user_path(@paper.user), :notice => "Successfully created paper." }
 	    render :json => @paper
 	  else
-      render :action => 'new'
+      render :edit
     end
   end
 

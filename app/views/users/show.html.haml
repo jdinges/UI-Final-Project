@@ -1,27 +1,21 @@
 -title "#{@user.title} #{@user.name}"
 
+- if @user == current_user
+  = link_to "Edit account information", edit_user_path(current_user), :class => "button positive edit"
+  
+- unless @user.published?
+  .clear
+  .notice
+    %h3 Draft Status
+    Your persona is currently in draft status.  Until you publish (click "edit account information" above) students will not be able to view your persona.
+
 .clear
 
--content_for :style_name do
-  = "#{@user.style.stylesheet}"
+= render @user
 
-#prof-info
-  .content-section
-    %h3 Biography
-    .clear
-    %p#bio= @user.bio
-    
-  .content-section
-    %h3 Courses
-    .clear
-    %ul#courses
-      - for course in @user.courses
-        %li= link_to course.title, course.link
-  .content-section
-    %h3 Papers
-    .clear
-    %ul#papers
-      -for paper in @user.papers
-        %li= paper.title
-
-= link_to "View all Professors", users_path, :class => "button positive"
+- if @user == current_user
+  %h4 Curious what other professors' personas look like?
+  = link_to "View other Professors",users_path, :class => "button positive"
+- else
+  %h4 Enough inspiration?
+  = link_to "Back to your persona",user_path(current_user), :class => "button positive"
