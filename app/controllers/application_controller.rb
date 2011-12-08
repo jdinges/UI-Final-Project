@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     true if current_user
   end
 
+  def current_user?
+    current_user == @user
+  end
+
   def login_required
     unless current_user
       redirect_to new_user_session_url, :notice => "You must be logged in to access this page"

@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to edit_members_user_path(@user), :notice => "Thank you for signing up! Now it's time to create your persona."
+      redirect_to @user, :notice => "Thank you for signing up! Now it's time to create your persona."
     else
       render :action => 'new'
     end
@@ -46,5 +46,9 @@ class UsersController < ApplicationController
 
   def find_user
     @user = current_user
+  end
+
+  def current_user?
+    current_user == @user
   end
 end
